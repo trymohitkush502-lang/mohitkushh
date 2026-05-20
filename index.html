@@ -1,0 +1,3366 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Mohit · Case for Design Lead</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.5.0/dist/tabler-icons.min.css">
+    <style>
+         :root {
+            --bg: #DFF1FF;
+            --bg-alt: #C7E3F3;
+            --ink: #1B4965;
+            --ink-soft: #2D5E7F;
+            --muted: #6B8AA1;
+            --line: #B6D4E8;
+            --accent: #5FA8D3;
+            --accent-soft: #BFDEF0;
+            --success: #2D6A4F;
+            --dark: #1B4965;
+            --dark-text: #DFF1FF;
+            --edit: #2563EB;
+            --r-sm: 6px;
+            --r-md: 12px;
+            --r-lg: 20px;
+            --maxw: 1100px;
+            --pad-x: 24px;
+        }
+        
+        @media (max-width:640px) {
+            :root {
+                --pad-x: 20px
+            }
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        html,
+        body {
+            margin: 0;
+            padding: 0
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%
+        }
+        
+        body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--ink-soft);
+            font-size: 16px;
+            line-height: 1.55;
+            font-feature-settings: "ss01", "cv11";
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        
+         ::selection {
+            background: var(--accent);
+            color: var(--bg)
+        }
+        
+        a {
+            color: inherit
+        }
+        
+        .serif {
+            font-family: 'Instrument Serif', 'Times New Roman', serif;
+            font-weight: 400;
+            letter-spacing: -0.005em
+        }
+        
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+            font-variant-numeric: tabular-nums
+        }
+        
+        .it {
+            font-style: italic
+        }
+        
+        h1,
+        h2,
+        h3 {
+            font-family: 'Instrument Serif', serif;
+            font-weight: 400;
+            color: var(--ink);
+            letter-spacing: -0.015em;
+            margin: 0;
+            line-height: 1.05;
+            text-wrap: balance
+        }
+        
+        h1 {
+            font-size: clamp(40px, 8vw, 76px)
+        }
+        
+        h2 {
+            font-size: clamp(32px, 5.5vw, 52px);
+            line-height: 1.06
+        }
+        
+        h3 {
+            font-size: clamp(22px, 3vw, 28px);
+            line-height: 1.15;
+            letter-spacing: -0.01em
+        }
+        
+        p {
+            margin: 0
+        }
+        
+        .container {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 var(--pad-x)
+        }
+        
+        section {
+            padding: 80px 0;
+            position: relative
+        }
+        
+        @media (max-width:640px) {
+            section {
+                padding: 60px 0
+            }
+        }
+        
+        .alt {
+            background: var(--bg-alt)
+        }
+        
+        .dark {
+            background: var(--dark);
+            color: var(--dark-text)
+        }
+        
+        .dark h1,
+        .dark h2,
+        .dark h3 {
+            color: var(--dark-text)
+        }
+        
+        .eyebrow {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--muted);
+            font-weight: 500;
+        }
+        
+        .dark .eyebrow {
+            color: #95B8CB
+        }
+        
+        .lead {
+            font-size: clamp(17px, 2.2vw, 20px);
+            line-height: 1.5;
+            max-width: 640px;
+            color: var(--ink-soft)
+        }
+        
+        .dark .lead {
+            color: #B8D4E3
+        }
+        /* Top bar */
+        
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: rgba(246, 242, 233, 0.86);
+            backdrop-filter: saturate(1.2) blur(10px);
+            -webkit-backdrop-filter: saturate(1.2) blur(10px);
+            border-bottom: 0.5px solid var(--line);
+        }
+        
+        .topbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px var(--pad-x);
+            max-width: var(--maxw);
+            margin: 0 auto;
+            font-size: 13px;
+            color: var(--ink);
+        }
+        
+        .brandmark {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500
+        }
+        
+        .brandmark .dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--ink);
+            color: var(--bg);
+            display: grid;
+            place-items: center;
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 14px;
+        }
+        
+        .brandmark .sep {
+            color: var(--muted);
+            font-weight: 400;
+            margin: 0 2px
+        }
+        
+        .brandmark .co {
+            color: var(--muted);
+            font-weight: 400
+        }
+        
+        .topbar .right {
+            font-variant-numeric: tabular-nums;
+            color: var(--muted)
+        }
+        /* Hero */
+        
+        .hero {
+            min-height: calc(100svh - 51px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 60px;
+            padding-bottom: 60px;
+            position: relative;
+        }
+        
+        .hero .eyebrow {
+            margin-bottom: 28px
+        }
+        
+        .hero h1 {
+            margin-bottom: 44px;
+            max-width: 980px
+        }
+        
+        .hero h1 .it {
+            color: var(--accent)
+        }
+        
+        .hero .sub {
+            max-width: 620px;
+            margin-bottom: 64px;
+            margin-top: 0
+        }
+        
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0;
+            border-top: 0.5px solid var(--line);
+            border-bottom: 0.5px solid var(--line);
+        }
+        
+        .stat {
+            padding: 22px 0;
+            border-right: 0.5px solid var(--line);
+        }
+        
+        .stat:last-child {
+            border-right: 0
+        }
+        
+        .stat .v {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(36px, 5.5vw, 52px);
+            color: var(--ink);
+            line-height: 1;
+            letter-spacing: -0.02em
+        }
+        
+        .stat .l {
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            margin-top: 10px
+        }
+        
+        @media (max-width:640px) {
+            .stat-row {
+                grid-template-columns: 1fr;
+            }
+            .stat {
+                border-right: 0;
+                border-bottom: 0.5px solid var(--line);
+                padding: 18px 0
+            }
+            .stat:last-child {
+                border-bottom: 0
+            }
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            right: var(--pad-x);
+            bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            animation: bob 2.4s ease-in-out infinite;
+        }
+        
+        .scroll-hint i {
+            font-size: 14px
+        }
+        
+        @keyframes bob {
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+            50% {
+                transform: translateY(6px)
+            }
+        }
+        /* Section heading */
+        
+        .section-head {
+            margin-bottom: 48px
+        }
+        
+        .section-head .eyebrow {
+            margin-bottom: 18px;
+            display: inline-block
+        }
+        
+        .section-head h2 {
+            margin-bottom: 18px;
+            max-width: 880px
+        }
+        
+        .section-head h2 .it {
+            color: var(--ink)
+        }
+        
+        .dark .section-head h2 .it {
+            color: var(--dark-text)
+        }
+        
+        .section-head .desc {
+            max-width: 560px
+        }
+        /* Card showcase */
+        
+        .showcase {
+            border: 0.5px solid var(--line);
+            border-radius: var(--r-lg);
+            background: var(--bg);
+            overflow: hidden;
+        }
+        
+        .alt .showcase {
+            background: var(--bg)
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 0.5px solid var(--line);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        
+        .tabs::-webkit-scrollbar {
+            display: none
+        }
+        
+        .tab {
+            flex: 1 0 auto;
+            min-width: 0;
+            padding: 18px 22px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            border-right: 0.5px solid var(--line);
+            background: transparent;
+            border-bottom: 2px solid transparent;
+            transition: background 0.2s ease, border-color 0.2s ease;
+            font-family: inherit;
+            text-align: left;
+            position: relative;
+        }
+        
+        .tab:last-child {
+            border-right: 0
+        }
+        
+        .tab .num {
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            color: var(--muted);
+            font-family: 'JetBrains Mono', monospace
+        }
+        
+        .tab .name {
+            font-size: 15px;
+            color: var(--ink);
+            font-weight: 500
+        }
+        
+        .tab:hover {
+            background: rgba(184, 99, 27, 0.04)
+        }
+        
+        .tab.is-active {
+            background: var(--accent-soft);
+            border-bottom-color: var(--accent)
+        }
+        
+        .tab.is-active .name {
+            color: var(--ink)
+        }
+        
+        .tab.is-active .num {
+            color: var(--accent)
+        }
+        
+        @media (max-width:640px) {
+            .tab {
+                padding: 14px 16px;
+                min-width: 140px
+            }
+            .tab .name {
+                font-size: 14px
+            }
+        }
+        
+        .panel {
+            display: none;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .panel.is-active {
+            display: grid
+        }
+        
+        @media (max-width:820px) {
+            .panel.is-active {
+                grid-template-columns: 1fr
+            }
+        }
+        
+        .creative-img {
+            position: relative;
+            background: repeating-linear-gradient(135deg, #ebe3d2 0 12px, #e3dac6 12px 24px);
+            border-right: 0.5px solid var(--line);
+            aspect-ratio: 1 / 1;
+            display: grid;
+            place-items: center;
+            cursor: default;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        @media (max-width:820px) {
+            .creative-img {
+                border-right: 0;
+                border-bottom: 0.5px solid var(--line);
+                aspect-ratio: 1 / 1
+            }
+        }
+        
+        .upload-zone {
+            text-align: center;
+            color: var(--muted);
+            padding: 20px;
+        }
+        
+        .upload-zone .ic {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(22, 20, 19, 0.06);
+            display: grid;
+            place-items: center;
+            margin: 0 auto 12px;
+            color: var(--ink);
+        }
+        
+        .upload-zone .ic i {
+            font-size: 22px
+        }
+        
+        .upload-zone .t {
+            font-size: 13px;
+            color: var(--ink-soft)
+        }
+        
+        .upload-zone .h {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--muted);
+            margin-top: 6px
+        }
+        
+        .creative-img.has-img .upload-zone {
+            display: none
+        }
+        
+        body.edit-on .creative-img {
+            cursor: pointer;
+            outline: 1px dashed var(--edit);
+            outline-offset: -6px
+        }
+        
+        body.edit-on .creative-img.has-img::after {
+            content: "Click to replace";
+            position: absolute;
+            left: 50%;
+            bottom: 14px;
+            transform: translateX(-50%);
+            background: rgba(22, 20, 19, 0.78);
+            color: var(--bg);
+            font-size: 11px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        
+        .creative-info {
+            padding: 32px
+        }
+        
+        @media (max-width:640px) {
+            .creative-info {
+                padding: 24px
+            }
+        }
+        
+        .tag-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 14px
+        }
+        
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        .ctx {
+            color: var(--muted);
+            font-size: 13px
+        }
+        
+        .c-name {
+            margin: 6px 0 22px;
+            font-size: clamp(26px, 3.4vw, 34px);
+            color: var(--ink)
+        }
+        
+        .metric-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border: 0.5px solid var(--line);
+            border-radius: var(--r-md);
+            overflow: hidden;
+        }
+        
+        .metric {
+            padding: 18px;
+            border-right: 0.5px solid var(--line);
+            border-bottom: 0.5px solid var(--line);
+        }
+        
+        .metric:nth-child(2n) {
+            border-right: 0
+        }
+        
+        .metric:nth-last-child(-n+2) {
+            border-bottom: 0
+        }
+        
+        .metric .l {
+            font-size: 11px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            margin-bottom: 8px
+        }
+        
+        .metric .v {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(24px, 3vw, 30px);
+            color: var(--ink);
+            line-height: 1.1
+        }
+        
+        .metric .v .before {
+            color: var(--muted);
+            text-decoration: line-through;
+            text-decoration-thickness: 1px;
+            margin-right: 8px;
+            font-size: 0.7em
+        }
+        
+        .metric .v .after {
+            color: var(--success)
+        }
+        
+        .call-out {
+            margin-top: 22px;
+            border-left: 2px solid var(--accent);
+            padding: 14px 0 14px 16px;
+            background: linear-gradient(90deg, rgba(95, 168, 211, 0.06), transparent 60%);
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .call-out .l {
+            font-size: 11px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            margin-bottom: 6px;
+            font-weight: 500
+        }
+        
+        .call-out .b {
+            color: var(--ink-soft);
+            font-size: 14.5px;
+            line-height: 1.5
+        }
+        /* AI section */
+        
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+            border: 0.5px solid #2D5E7F;
+            border-radius: var(--r-md);
+            overflow: hidden;
+            margin-top: 48px;
+        }
+        
+        @media (max-width:900px) {
+            .ai-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+        
+        @media (max-width:480px) {
+            .ai-grid {
+                grid-template-columns: 1fr
+            }
+        }
+        
+        .ai-tool {
+            padding: 20px;
+            border-right: 0.5px solid #2D5E7F;
+        }
+        
+        .ai-tool:last-child {
+            border-right: 0
+        }
+        
+        @media (max-width:900px) {
+            .ai-tool {
+                border-bottom: 0.5px solid #2D5E7F
+            }
+            .ai-tool:nth-child(2n) {
+                border-right: 0
+            }
+            .ai-tool:nth-last-child(-n+1) {
+                border-bottom: 0
+            }
+        }
+        
+        .ai-tool h3 {
+            font-style: italic;
+            font-size: 24px;
+            color: var(--dark-text);
+            margin-bottom: 8px
+        }
+        
+        .ai-tool p {
+            font-size: 13.5px;
+            color: #B8D4E3;
+            line-height: 1.5
+        }
+        
+        .today-tomorrow {
+            display: grid;
+            grid-template-columns: 1fr 40px 1fr;
+            gap: 0;
+            align-items: stretch;
+            margin-top: 36px;
+        }
+        
+        @media (max-width:760px) {
+            .today-tomorrow {
+                grid-template-columns: 1fr;
+                gap: 14px
+            }
+        }
+        
+        .tt-card {
+            border: 0.5px solid #2D5E7F;
+            border-radius: var(--r-md);
+            padding: 28px;
+        }
+        
+        .tt-card .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: #95B8CB;
+            margin-bottom: 14px
+        }
+        
+        .tt-card h3 {
+            font-style: italic;
+            font-size: 28px;
+            color: var(--dark-text);
+            margin-bottom: 14px;
+            line-height: 1.15
+        }
+        
+        .tt-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0
+        }
+        
+        .tt-card li {
+            padding: 8px 0;
+            border-bottom: 0.5px solid #2D5E7F;
+            font-size: 14.5px;
+            color: #B8D4E3
+        }
+        
+        .tt-card li:last-child {
+            border-bottom: 0
+        }
+        
+        .tt-card.accent {
+            background: var(--accent);
+            border-color: var(--accent)
+        }
+        
+        .tt-card.accent .label {
+            color: rgba(255, 255, 255, 0.7)
+        }
+        
+        .tt-card.accent h3,
+        .tt-card.accent li {
+            color: #F3FAFF
+        }
+        
+        .tt-card.accent li {
+            border-bottom-color: rgba(255, 255, 255, 0.22)
+        }
+        
+        .tt-arrow {
+            display: grid;
+            place-items: center;
+            color: #95B8CB;
+            font-size: 22px
+        }
+        
+        @media (max-width:760px) {
+            .tt-arrow {
+                transform: rotate(90deg);
+                padding: 6px 0
+            }
+        }
+        /* Leadership */
+        
+        .lead-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border: 0.5px solid var(--line);
+            border-radius: var(--r-lg);
+            overflow: hidden
+        }
+        
+        @media (max-width:860px) {
+            .lead-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+        
+        @media (max-width:540px) {
+            .lead-grid {
+                grid-template-columns: 1fr
+            }
+        }
+        
+        .lead-card {
+            padding: 28px;
+            border-right: 0.5px solid var(--line);
+            border-bottom: 0.5px solid var(--line);
+            transition: transform 0.24s ease, background 0.24s ease, border-color 0.24s ease;
+            position: relative;
+        }
+        
+        .lead-card:nth-child(3n) {
+            border-right: 0
+        }
+        
+        @media (max-width:860px) {
+            .lead-card:nth-child(3n) {
+                border-right: 0.5px solid var(--line)
+            }
+            .lead-card:nth-child(2n) {
+                border-right: 0
+            }
+        }
+        
+        @media (max-width:540px) {
+            .lead-card {
+                border-right: 0
+            }
+        }
+        
+        .lead-card:nth-last-child(-n+3) {
+            border-bottom: 0
+        }
+        
+        @media (max-width:860px) {
+            .lead-card:nth-last-child(-n+3) {
+                border-bottom: 0.5px solid var(--line)
+            }
+            .lead-card:nth-last-child(-n+2) {
+                border-bottom: 0
+            }
+        }
+        
+        @media (max-width:540px) {
+            .lead-card {
+                border-bottom: 0.5px solid var(--line)!important
+            }
+            .lead-card:last-child {
+                border-bottom: 0!important
+            }
+        }
+        
+        .lead-card:hover {
+            transform: translateY(-2px);
+            background: rgba(95, 168, 211, 0.04)
+        }
+        
+        .lead-card .ic {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            display: grid;
+            place-items: center;
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+        
+        .lead-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            line-height: 1.2
+        }
+        
+        .lead-card .d {
+            font-size: 14.5px;
+            color: var(--ink-soft);
+            margin-bottom: 14px
+        }
+        
+        .lead-card .ex {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--muted);
+            padding-top: 12px;
+            border-top: 0.5px dashed var(--line)
+        }
+        
+        .lead-card .ex::before {
+            content: "Example · ";
+            font-style: normal;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-size: 10px;
+            color: var(--accent);
+            margin-right: 6px;
+            font-weight: 500
+        }
+        /* 90 day plan */
+        
+        .plan-list {
+            display: flex;
+            flex-direction: column;
+            margin-top: 48px
+        }
+        
+        .plan-item {
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            gap: 24px;
+            align-items: start;
+            padding: 28px 0;
+            border-top: 0.5px solid #2D5E7F;
+        }
+        
+        .plan-item:last-child {
+            border-bottom: 0.5px solid #2D5E7F
+        }
+        
+        @media (max-width:720px) {
+            .plan-item {
+                grid-template-columns: 64px 1fr;
+            }
+        }
+        
+        .plan-num {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 64px;
+            color: var(--accent);
+            line-height: 0.9;
+            letter-spacing: -0.02em
+        }
+        
+        @media (max-width:720px) {
+            .plan-num {
+                font-size: 44px
+            }
+        }
+        
+        .plan-body h3 {
+            color: var(--dark-text);
+            margin-bottom: 10px;
+            font-size: 26px
+        }
+        
+        .plan-body p {
+            color: #B8D4E3;
+            font-size: 14.5px;
+            line-height: 1.55;
+            max-width: 540px;
+            margin-bottom: 14px
+        }
+        
+        .plan-target {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(95, 168, 211, 0.18);
+            color: #BDE4FF;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            border: 0.5px solid rgba(95, 168, 211, 0.45);
+        }
+        
+        .plan-target i {
+            font-size: 13px;
+            color: var(--accent)
+        }
+        
+        .plan-time {
+            align-self: start;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            color: #95B8CB;
+            padding: 6px 10px;
+            border: 0.5px solid #2D5E7F;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+        
+        @media (max-width:720px) {
+            .plan-time {
+                grid-column: 2/3;
+                margin-top: 12px;
+                align-self: auto;
+                justify-self: start
+            }
+        }
+        /* ROI comparison */
+        
+        .roi {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border: 0.5px solid var(--line);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            margin-top: 40px;
+        }
+        
+        @media (max-width:720px) {
+            .roi {
+                grid-template-columns: 1fr
+            }
+        }
+        
+        .roi-col {
+            padding: 28px
+        }
+        
+        .roi-col.accent {
+            background: var(--accent);
+            color: #F3FAFF
+        }
+        
+        .roi-col.accent .roi-head .l {
+            color: rgba(255, 255, 255, 0.75)
+        }
+        
+        .roi-col.accent .roi-head h3 {
+            color: #F3FAFF
+        }
+        
+        .roi-col.accent .roi-row {
+            border-color: rgba(255, 255, 255, 0.22)
+        }
+        
+        .roi-col.accent .roi-row .l {
+            color: rgba(255, 255, 255, 0.78)
+        }
+        
+        .roi-col.accent .roi-row .v {
+            color: #F3FAFF
+        }
+        
+        .roi-head {
+            margin-bottom: 18px
+        }
+        
+        .roi-head .l {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--muted);
+            margin-bottom: 6px
+        }
+        
+        .roi-head h3 {
+            font-size: 28px;
+            color: var(--ink);
+            font-style: italic
+        }
+        
+        .roi-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 14px;
+            padding: 14px 0;
+            border-top: 0.5px solid var(--line);
+        }
+        
+        .roi-row:last-child {
+            border-bottom: 0.5px solid var(--line)
+        }
+        
+        .roi-row .l {
+            font-size: 13.5px;
+            color: var(--ink-soft)
+        }
+        
+        .roi-row .v {
+            font-family: 'Instrument Serif', serif;
+            font-size: 20px;
+            color: var(--ink);
+            text-align: right
+        }
+        
+        @media (max-width:720px) {
+            .roi-col+.roi-col {
+                border-top: 0.5px solid var(--line)
+            }
+        }
+        
+        .roi-note {
+            margin-top: 24px;
+            background: var(--dark);
+            color: var(--dark-text);
+            border-radius: var(--r-md);
+            padding: 22px 26px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        .roi-note b {
+            color: #BDE4FF;
+            font-weight: 500
+        }
+        /* Salary band */
+        
+        .band-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 36px
+        }
+        
+        .band {
+            display: grid;
+            grid-template-columns: 220px 1fr 110px;
+            gap: 18px;
+            align-items: center;
+        }
+        
+        @media (max-width:720px) {
+            .band {
+                grid-template-columns: 1fr;
+                gap: 6px
+            }
+        }
+        
+        .band .name {
+            font-size: 14px;
+            color: var(--ink)
+        }
+        
+        .band .name .sub {
+            color: var(--muted);
+            display: block;
+            font-size: 12px;
+            margin-top: 2px
+        }
+        
+        .band .bar {
+            height: 32px;
+            background: rgba(22, 20, 19, 0.06);
+            border-radius: 999px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .band .bar-fill {
+            height: 100%;
+            background: var(--ink);
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            padding: 0 14px;
+            color: var(--bg);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+        }
+        
+        .band.ask .bar-fill {
+            background: var(--accent)
+        }
+        
+        .band.ask .name {
+            color: var(--accent);
+            font-weight: 500
+        }
+        
+        .band .ask-pill {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .band.ask .ask-pill {
+            display: inline-flex
+        }
+        
+        .band-footer {
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 14px;
+            font-style: italic;
+            text-align: center
+        }
+        /* Ask section */
+        
+        .ask-wrap {
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px
+        }
+        
+        .ask-wrap .eyebrow {
+            color: #95B8CB;
+            margin-bottom: 24px;
+            display: inline-block
+        }
+        
+        .ask-wrap h2 {
+            font-size: clamp(38px, 6.5vw, 64px);
+            margin: 0 auto 36px;
+            max-width: 920px
+        }
+        
+        .ask-wrap h2 .it {
+            color: var(--accent)
+        }
+        
+        .ask-cells {
+            display: grid;
+            grid-template-columns: 1fr 40px 1fr;
+            gap: 0;
+            max-width: 760px;
+            margin: 0 auto 40px;
+            align-items: stretch;
+        }
+        
+        @media (max-width:640px) {
+            .ask-cells {
+                grid-template-columns: 1fr;
+                gap: 14px
+            }
+        }
+        
+        .ask-cell {
+            border: 0.5px solid #2D5E7F;
+            border-radius: var(--r-md);
+            padding: 24px;
+        }
+        
+        .ask-cell.to {
+            background: var(--accent);
+            border-color: var(--accent)
+        }
+        
+        .ask-cell .l {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: #95B8CB;
+            margin-bottom: 10px
+        }
+        
+        .ask-cell.to .l {
+            color: rgba(255, 255, 255, 0.78)
+        }
+        
+        .ask-cell h3 {
+            font-style: italic;
+            font-size: 26px;
+            color: var(--dark-text);
+            margin-bottom: 4px
+        }
+        
+        .ask-cell.to h3 {
+            color: #F3FAFF
+        }
+        
+        .ask-cell .sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: #95B8CB
+        }
+        
+        .ask-cell.to .sub {
+            color: rgba(255, 255, 255, 0.85)
+        }
+        
+        .ask-arrow {
+            display: grid;
+            place-items: center;
+            color: #95B8CB;
+            font-size: 22px
+        }
+        
+        @media (max-width:640px) {
+            .ask-arrow {
+                transform: rotate(90deg);
+                padding: 0
+            }
+        }
+        
+        .ask-close {
+            max-width: 680px;
+            margin: 0 auto 44px;
+            color: #B8D4E3;
+            font-size: 16px;
+            line-height: 1.6
+        }
+        
+        .ask-sign {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 46px;
+            color: var(--dark-text);
+            line-height: 1
+        }
+        
+        .ask-meta {
+            margin-top: 12px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: #95B8CB
+        }
+        /* Closer rows (final section) */
+        
+        .closer-rows {
+            max-width: 780px;
+            margin: 0 auto 44px;
+            display: flex;
+            flex-direction: column;
+            border-top: 0.5px solid #2D5E7F;
+        }
+        
+        .closer-row {
+            display: grid;
+            grid-template-columns: 170px 1fr;
+            gap: 24px;
+            align-items: baseline;
+            padding: 20px 4px;
+            border-bottom: 0.5px solid #2D5E7F;
+            text-align: left;
+        }
+        
+        .closer-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: #95B8CB;
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .closer-line {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(22px, 3vw, 30px);
+            color: var(--dark-text);
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+        }
+        
+        .closer-line em {
+            font-style: italic;
+            color: #BDE4FF
+        }
+        
+        @media (max-width:640px) {
+            .closer-row {
+                grid-template-columns: 1fr;
+                gap: 6px;
+                padding: 18px 4px
+            }
+        }
+        /* Footer */
+        
+        footer.foot {
+            padding: 36px 0;
+            text-align: center;
+            border-top: 0.5px solid var(--line);
+            color: var(--muted);
+            font-size: 13px;
+        }
+        /* Edit / placeholders */
+        
+        .ph {
+            color: var(--edit);
+            border-bottom: 1px dashed var(--edit);
+            padding: 0 2px;
+            cursor: text;
+            font-feature-settings: "tnum";
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .ph:focus {
+            outline: none;
+            background: rgba(37, 99, 235, 0.08);
+            border-radius: 2px
+        }
+        
+        [contenteditable="true"] {
+            outline: none
+        }
+        
+        body.edit-on [contenteditable="true"]:not(.ph) {
+            outline: 1px dashed rgba(37, 99, 235, 0.55);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+        
+        body.edit-on [contenteditable="true"]:focus {
+            background: rgba(37, 99, 235, 0.06)
+        }
+        
+        body:not(.edit-on) .ph {
+            color: inherit;
+            border-bottom-color: transparent
+        }
+        
+        body:not(.edit-on) .ph:empty::before,
+        body:not(.edit-on) .ph:where(:not(:empty)) {}
+        
+        body:not(.edit-on) .ph {
+            color: var(--ink);
+            border-bottom: 0
+        }
+        
+        .dark body:not(.edit-on) .ph,
+        .dark .ph {
+            color: var(--dark-text)
+        }
+        
+        body:not(.edit-on) .ask-cell .ph,
+        body:not(.edit-on) .tt-card.accent .ph,
+        body:not(.edit-on) .roi-col.accent .ph {
+            color: inherit
+        }
+        /* Edit banner */
+        
+        .edit-banner {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 60;
+            background: var(--edit);
+            color: #fff;
+            padding: 8px var(--pad-x);
+            font-size: 12.5px;
+            text-align: center;
+            letter-spacing: 0.04em;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+        }
+        
+        .edit-banner b {
+            font-weight: 600
+        }
+        
+        .edit-banner button {
+            background: rgba(255, 255, 255, 0.16);
+            color: #fff;
+            border: 0.5px solid rgba(255, 255, 255, 0.4);
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            cursor: pointer;
+            font-family: inherit;
+            margin-left: 12px;
+        }
+        
+        .edit-banner button:hover {
+            background: rgba(255, 255, 255, 0.28)
+        }
+        
+        body.edit-on .edit-banner {
+            display: block
+        }
+        
+        body.edit-on .topbar {
+            top: 34px
+        }
+        /* Edit toggle button */
+        
+        .edit-toggle {
+            position: fixed;
+            left: 18px;
+            bottom: 18px;
+            z-index: 55;
+            background: var(--ink);
+            color: var(--bg);
+            border: 0;
+            border-radius: 999px;
+            padding: 12px 16px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 6px 20px rgba(22, 20, 19, 0.18);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        
+        .edit-toggle:hover {
+            transform: translateY(-1px)
+        }
+        
+        .edit-toggle i {
+            font-size: 16px
+        }
+        
+        body.edit-on .edit-toggle {
+            background: var(--edit)
+        }
+        /* Reveal */
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease
+        }
+        
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0)
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none
+            }
+            .scroll-hint {
+                animation: none
+            }
+        }
+        
+        input[type=file].uploader {
+            display: none
+        }
+        /* ─── Bento (Marketplaces) ─────────────────────────────────────────── */
+        
+        .bento-tabs {
+            display: flex;
+            gap: 6px;
+            padding: 6px;
+            background: var(--bg-alt);
+            border: 0.5px solid var(--line);
+            border-radius: 999px;
+            margin: 0 auto 40px;
+            width: fit-content;
+            max-width: 100%;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        
+        .bento-tabs::-webkit-scrollbar {
+            display: none
+        }
+        
+        .bento-tab {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border: 0;
+            background: transparent;
+            border-radius: 999px;
+            color: var(--ink-soft);
+            font-family: inherit;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+            white-space: nowrap;
+            min-width: 0;
+        }
+        
+        .bento-tab .num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+        }
+        
+        .bento-tab.is-active {
+            background: var(--ink);
+            color: var(--bg)
+        }
+        
+        .bento-tab.is-active .num {
+            color: rgba(255, 255, 255, 0.6)
+        }
+        
+        .bento-tab:not(.is-active):hover {
+            background: rgba(0, 0, 0, 0.04)
+        }
+        
+        @media (max-width:640px) {
+            .bento-tab {
+                padding: 8px 14px;
+                font-size: 13px
+            }
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        
+        @media (max-width:760px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+                gap: 14px
+            }
+        }
+        
+        .bento-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            box-shadow: 0 0 0 0.5px var(--line) inset;
+        }
+        
+        @media (max-width:760px) {
+            .bento-card {
+                border-radius: 20px
+            }
+        }
+        /* Bento tints (cream defaults; palette overrides further down) */
+        
+        .bento-card.bento-1 {
+            background: var(--bento-1, #CFE6F5)
+        }
+        
+        .bento-card.bento-2 {
+            background: var(--bento-2, #BFDDF0)
+        }
+        
+        .bento-card.bento-3 {
+            background: var(--bento-3, #D5E9F4)
+        }
+        
+        .bento-card.bento-4 {
+            background: var(--bento-4, #C4E0EE)
+        }
+        /* Image slot fills the whole card; image previews complete (contain), card tint letterboxes */
+        
+        .bento-slot {
+            position: absolute;
+            inset: 0;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: grid;
+            place-items: center;
+            cursor: default;
+            transition: filter 0.3s ease;
+        }
+        
+        .bento-slot .upload-zone {
+            text-align: center;
+            padding: 14px;
+            transition: opacity 0.2s ease
+        }
+        
+        .bento-slot.has-img .upload-zone {
+            display: none
+        }
+        
+        body.edit-on .bento-slot {
+            cursor: pointer;
+            outline: 1px dashed var(--edit);
+            outline-offset: -6px
+        }
+        /* Text overlay — sits top-left over the slot */
+        
+        .bento-head {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            z-index: 2;
+            padding: 24px 28px;
+            pointer-events: none;
+        }
+        
+        @media (max-width:760px) {
+            .bento-head {
+                padding: 20px 22px
+            }
+        }
+        
+        .bento-head>* {
+            pointer-events: auto
+        }
+        
+        .bento-head h3 {
+            margin: 0 0 6px;
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(22px, 2.6vw, 28px);
+            color: var(--ink);
+            letter-spacing: -0.01em;
+            line-height: 1.15;
+            max-width: 80%;
+            transition: color 0.25s ease;
+        }
+        
+        .bento-sub {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.4;
+            max-width: 80%;
+            transition: color 0.25s ease;
+        }
+        /* Swiped gradient veil — only when an image is loaded, so text stays legible */
+        
+        .bento-card::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 55%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.32) 38%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .bento-card:has(.bento-slot.has-img)::after {
+            opacity: 1
+        }
+        
+        .bento-card:has(.bento-slot.has-img) .bento-head h3 {
+            color: #fff
+        }
+        
+        .bento-card:has(.bento-slot.has-img) .bento-sub {
+            color: rgba(255, 255, 255, 0.86)
+        }
+        /* "Click to replace" hint in edit mode */
+        
+        body.edit-on .bento-card:has(.bento-slot.has-img)::before {
+            content: "Click to replace";
+            position: absolute;
+            right: 14px;
+            bottom: 12px;
+            z-index: 3;
+            background: rgba(22, 20, 19, 0.82);
+            color: var(--bg);
+            font-size: 10px;
+            padding: 5px 10px;
+            border-radius: 999px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+        /* ─── Tweak overrides ─────────────────────────────────────────────────
+     Three expressive controls: Palette (color story), Voice (typography),
+     Pace (rhythm). Applied as data-attributes on <html>. ───────────────── */
+        /* PALETTE — Paper & Red (editorial newsprint) */
+        
+         :root[data-palette="paper"] {
+            --bg: #FAFAF7;
+            --bg-alt: #F1EFE8;
+            --ink: #15151A;
+            --ink-soft: #2e2e30;
+            --muted: #85857F;
+            --line: #DDDCD5;
+            --accent: #B23B30;
+            --accent-soft: #F2D8D4;
+            --dark: #15151A;
+            --dark-text: #FAFAF7;
+        }
+        /* PALETTE — Dusk & Olive (warmer, deeper) */
+        
+         :root[data-palette="dusk"] {
+            --bg: #E8DCC0;
+            --bg-alt: #DCCFB0;
+            --ink: #1F1C16;
+            --ink-soft: #3A3528;
+            --muted: #7c6f55;
+            --line: #C2B594;
+            --accent: #5A6B3E;
+            --accent-soft: #C8C4A0;
+            --dark: #1F1C16;
+            --dark-text: #E8DCC0;
+        }
+        /* Bento tint overrides per palette */
+        
+         :root[data-palette="paper"] {
+            --bento-1: #F1EFE8;
+            --bento-2: #EFE6E2;
+            --bento-3: #EAEAE3;
+            --bento-4: #F0ECE3;
+        }
+        
+         :root[data-palette="dusk"] {
+            --bento-1: #DCCFB0;
+            --bento-2: #D6C394;
+            --bento-3: #CFCBA2;
+            --bento-4: #D9C99F;
+        }
+        /* Palette-dependent details that don't read from CSS vars directly */
+        
+         :root[data-palette="paper"] .upload-zone .ic,
+         :root[data-palette="dusk"] .upload-zone .ic {
+            background: rgba(0, 0, 0, 0.05)
+        }
+        
+         :root[data-palette="paper"] .band .bar,
+         :root[data-palette="dusk"] .band .bar {
+            background: rgba(0, 0, 0, 0.08)
+        }
+        /* VOICE — Modern (sans-serif display, body unchanged DM Sans) */
+        
+         :root[data-voice="modern"] h1,
+         :root[data-voice="modern"] h2,
+         :root[data-voice="modern"] h3,
+         :root[data-voice="modern"] .serif,
+         :root[data-voice="modern"] .ai-tool h3,
+         :root[data-voice="modern"] .tt-card h3,
+         :root[data-voice="modern"] .plan-body h3,
+         :root[data-voice="modern"] .roi-head h3,
+         :root[data-voice="modern"] .ask-cell h3,
+         :root[data-voice="modern"] .ask-sign,
+         :root[data-voice="modern"] .closer-line,
+         :root[data-voice="modern"] .stat .v,
+         :root[data-voice="modern"] .metric .v,
+         :root[data-voice="modern"] .c-name,
+         :root[data-voice="modern"] .plan-num,
+         :root[data-voice="modern"] .roi-row .v {
+            font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+            font-weight: 500;
+            letter-spacing: -0.025em;
+        }
+        /* Modern keeps emphasis via accent color, drops slanted italics */
+        
+         :root[data-voice="modern"] h1 .it,
+         :root[data-voice="modern"] h2 .it,
+         :root[data-voice="modern"] .closer-line em,
+         :root[data-voice="modern"] .ask-sign {
+            font-style: normal
+        }
+        
+         :root[data-voice="modern"] .plan-num {
+            font-style: normal;
+            font-weight: 600
+        }
+        /* Tighter line-height for the grotesque headings */
+        
+         :root[data-voice="modern"] h1 {
+            line-height: 0.98;
+            letter-spacing: -0.03em
+        }
+        
+         :root[data-voice="modern"] h2 {
+            line-height: 1.02;
+            letter-spacing: -0.025em
+        }
+        /* VOICE — Print (serif on serif, magazine setting) */
+        
+         :root[data-voice="print"] h1,
+         :root[data-voice="print"] h2,
+         :root[data-voice="print"] h3,
+         :root[data-voice="print"] .serif,
+         :root[data-voice="print"] .ai-tool h3,
+         :root[data-voice="print"] .tt-card h3,
+         :root[data-voice="print"] .plan-body h3,
+         :root[data-voice="print"] .roi-head h3,
+         :root[data-voice="print"] .ask-cell h3,
+         :root[data-voice="print"] .ask-sign,
+         :root[data-voice="print"] .closer-line,
+         :root[data-voice="print"] .stat .v,
+         :root[data-voice="print"] .metric .v,
+         :root[data-voice="print"] .c-name,
+         :root[data-voice="print"] .roi-row .v {
+            font-family: 'Newsreader', 'Times New Roman', serif;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+        
+         :root[data-voice="print"] .plan-num {
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+        }
+        
+         :root[data-voice="print"] body,
+         :root[data-voice="print"] .lead,
+         :root[data-voice="print"] p,
+         :root[data-voice="print"] .lead-card .d,
+         :root[data-voice="print"] .ai-tool p,
+         :root[data-voice="print"] .tt-card li,
+         :root[data-voice="print"] .plan-body p,
+         :root[data-voice="print"] .ask-close,
+         :root[data-voice="print"] .roi-row .l,
+         :root[data-voice="print"] .roi-note,
+         :root[data-voice="print"] .creative-info {
+            font-family: 'Spectral', 'Georgia', serif;
+            font-weight: 400;
+        }
+        /* keep mono + tiny labels unchanged in Print */
+        /* PACE — Generous (more air, bigger display type) */
+        
+         :root[data-pace="generous"] section {
+            padding: 120px 0
+        }
+        
+        @media (max-width:640px) {
+             :root[data-pace="generous"] section {
+                padding: 84px 0
+            }
+        }
+        
+         :root[data-pace="generous"] h1 {
+            font-size: clamp(48px, 9vw, 92px);
+            line-height: 1.02
+        }
+        
+         :root[data-pace="generous"] h2 {
+            font-size: clamp(36px, 6.4vw, 64px)
+        }
+        
+         :root[data-pace="generous"] .section-head {
+            margin-bottom: 64px
+        }
+        
+         :root[data-pace="generous"] .hero h1 {
+            margin-bottom: 56px
+        }
+        
+         :root[data-pace="generous"] .hero .sub {
+            margin-bottom: 88px
+        }
+        
+         :root[data-pace="generous"] .creative-info {
+            padding: 44px
+        }
+        
+         :root[data-pace="generous"] .lead-card,
+         :root[data-pace="generous"] .ai-tool,
+         :root[data-pace="generous"] .tt-card,
+         :root[data-pace="generous"] .roi-col {
+            padding: 36px
+        }
+        /* PACE — Tight (compact, denser, more newspaper-like) */
+        
+         :root[data-pace="tight"] section {
+            padding: 52px 0
+        }
+        
+        @media (max-width:640px) {
+             :root[data-pace="tight"] section {
+                padding: 44px 0
+            }
+        }
+        
+         :root[data-pace="tight"] h1 {
+            font-size: clamp(32px, 6vw, 56px);
+            line-height: 1.06
+        }
+        
+         :root[data-pace="tight"] h2 {
+            font-size: clamp(26px, 4.2vw, 40px)
+        }
+        
+         :root[data-pace="tight"] h3 {
+            font-size: clamp(18px, 2.4vw, 22px)
+        }
+        
+         :root[data-pace="tight"] .section-head {
+            margin-bottom: 32px
+        }
+        
+         :root[data-pace="tight"] .hero h1 {
+            margin-bottom: 28px
+        }
+        
+         :root[data-pace="tight"] .hero .sub {
+            margin-bottom: 40px
+        }
+        
+         :root[data-pace="tight"] .creative-info {
+            padding: 22px
+        }
+        
+         :root[data-pace="tight"] .lead-card,
+         :root[data-pace="tight"] .ai-tool,
+         :root[data-pace="tight"] .tt-card,
+         :root[data-pace="tight"] .roi-col {
+            padding: 20px
+        }
+        
+         :root[data-pace="tight"] .lead {
+            font-size: clamp(15px, 1.8vw, 17px)
+        }
+        
+         :root[data-pace="tight"] .stat .v,
+         :root[data-pace="tight"] .metric .v {
+            font-size: clamp(22px, 3vw, 26px)
+        }
+        
+         :root[data-pace="tight"] .plan-num {
+            font-size: 48px
+        }
+        
+         :root[data-pace="tight"] .plan-item {
+            padding: 18px 0
+        }
+        
+         :root[data-pace="tight"] .closer-line {
+            font-size: clamp(18px, 2.4vw, 22px)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="edit-banner">
+        <b>Edit mode is on.</b> Click any number, name, or placeholder to update it. Changes save automatically.
+        <button id="resetAll" type="button">Reset all</button>
+    </div>
+
+    <!-- Top bar -->
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brandmark">
+                <span class="dot">M</span>
+                <span><span contenteditable="true">Mohit</span><span class="sep"> · </span><span class="co" contenteditable="true">Agile Ventures</span></span>
+            </div>
+            <div class="right">Appraisal · <span contenteditable="true">2026</span></div>
+        </div>
+    </header>
+
+    <!-- 1. HERO -->
+    <section class="hero container reveal">
+        <span class="eyebrow">The case for Design Lead</span>
+        <h1>
+            <span contenteditable="true" style="font-size: 86px; color: rgb(184, 99, 27)"><span style="color: rgb(27, 73, 101)">Leading without<br>the label.</span></span>
+            <span class="it" contenteditable="true"></span>
+        </h1>
+        <p class="lead sub" contenteditable="true">A quiet, data-backed case — campaign performance across Meta, Google and marketplaces, the leadership already in motion, and a written 90-day plan.</p>
+        <div class="stat-row">
+            <div class="stat">
+                <div class="v"><span class="ph" contenteditable="true">5+</span> yrs</div>
+                <div class="l">At Agile Ventures</div>
+            </div>
+            <div class="stat" style="border-color: rgb(209, 209, 209)">
+                <div class="v"><span class="ph" contenteditable="true">6+</span> yrs</div>
+                <div class="l">As a designer</div>
+            </div>
+            <div class="stat">
+                <div class="v"><span class="ph" contenteditable="true">5</span></div>
+                <div class="l">Creative team size</div>
+            </div>
+        </div>
+        <div class="scroll-hint"><span>Scroll</span><i class="ti ti-arrow-down"></i></div>
+    </section>
+
+    <!-- 2. AI -->
+    <section class="dark reveal">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow" style="color:#95B8CB">AI in the workflow</span>
+                <h2>AI today. <span class="it" style="color:#BDE4FF">Automation tomorrow.</span></h2>
+                <p class="lead desc" style="color:#B8D4E3" contenteditable="true">Already using AI to ship faster across every campaign. The next step is team-wide automation — turning repetition into time for the work that actually matters.</p>
+            </div>
+
+            <div class="ai-grid">
+                <div class="ai-tool">
+                    <h3>ChatGPT</h3>
+                    <p contenteditable="true">Briefs, copy variants, ad headlines and structured ideation.</p>
+                </div>
+                <div class="ai-tool">
+                    <h3>Gemini</h3>
+                    <p contenteditable="true">Long-context research and pulling references at scale.</p>
+                </div>
+                <div class="ai-tool">
+                    <h3>Freepik AI</h3>
+                    <p contenteditable="true">Quick visual exploration, mood, on-brand asset generation.</p>
+                </div>
+                <div class="ai-tool">
+                    <h3>Claude</h3>
+                    <p contenteditable="true">Creative writing, design critique, structured strategy work.</p>
+                </div>
+                <div class="ai-tool">
+                    <h3>Perplexity</h3>
+                    <p contenteditable="true">Market and competitor scans before every new campaign.</p>
+                </div>
+            </div>
+
+            <div class="today-tomorrow">
+                <div class="tt-card">
+                    <div class="label">Today</div>
+                    <h3>AI-assisted output, shipped weekly</h3>
+                    <ul>
+                        <li contenteditable="true">Concepting and ideation across <span class="ph" contenteditable="true">3–4</span> campaigns a week</li>
+                        <li contenteditable="true">Copy variants and ad headlines in minutes, not hours</li>
+                        <li contenteditable="true">First-pass references and mood for every new brief</li>
+                        <li contenteditable="true">Faster turnaround on revisions and resize variants</li>
+                    </ul>
+                </div>
+                <div class="tt-arrow"><i class="ti ti-arrow-right"></i></div>
+                <div class="tt-card accent">
+                    <div class="label">Next 12 months</div>
+                    <h3>Repeatable creative, automated</h3>
+                    <ul>
+                        <li contenteditable="true">Resize and adaptation workflows handled by AI pipelines</li>
+                        <li contenteditable="true">Template systems for high-volume listing creatives</li>
+                        <li contenteditable="true">Brand-trained models for on-tone first drafts</li>
+                        <li contenteditable="true">Freeing the team for strategy, brand and brainstorming</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. LEADERSHIP -->
+    <section class="reveal">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Leadership · Already in motion</span>
+                <h2>The title is the only thing <span class="it">that hasn't caught up.</span></h2>
+                <p class="lead desc">Six behaviours that already define how I work — without the title.</p>
+            </div>
+            <div class="lead-grid">
+                <div class="lead-card">
+                    <div class="ic"><i class="ti ti-users"></i></div>
+                    <h3>Cross-team direction</h3>
+                    <p class="d" contenteditable="true">Brainstorm with UI/UX designer, video editor &amp; Motion Graphics Designer— turning a campaign idea into a shipped set of assets.</p>
+                    <div class="ex" contenteditable="true">Owned creative direction from launch to finish.</div>
+                </div>
+                <div class="lead-card">
+                    <div class="ic"><i class="ti ti-bulb"></i></div>
+                    <h3>Ideas pitched & shipped</h3>
+                    <p class="d" contenteditable="true">From insight to creative to campaign — pitching concepts that go live, not pitch decks that don't.</p>
+                    <div class="ex" contenteditable="true">Bulk Orders creative — proposed, designed, shipped, won.</div>
+                </div>
+                <div class="lead-card">
+                    <div class="ic"><i class="ti ti-message-circle"></i></div>
+                    <h3>Peer review & creative direction</h3>
+                    <p class="d" contenteditable="true">Feedback and review with team — copy, layout, typography — and giving the kind of feedback that levels everyone up</p>
+                    <div class="ex" contenteditable="true">Suggest new design trend and tips to increase the overall creative quality.</div>
+                </div>
+                <div class="lead-card">
+                    <div class="ic"><i class="ti ti-target"></i></div>
+                    <h3>Design decisions owned</h3>
+                    <p class="d" contenteditable="true">Calling the shots on layout, hierarchy and visual system — and owning the outcome when it ships.</p>
+                    <div class="ex" contenteditable="true">Tried to maintain the consistency and visual aesthetics across all the platform.   </div>
+                </div>
+                <div class="lead-card">
+                    <div class="ic"><i class="ti ti-history"></i></div>
+                    <h3>5+ years of context</h3>
+                    <p class="d" contenteditable="true">Half a decade of brand memory — what works, what bombed, what every category buys.</p>
+                    <div class="ex" contenteditable="true">Brand knowledge no external hire walks in with on day one.</div>
+                </div>
+                <div class="lead-card">
+                    <div class="ic"><i class="ti ti-trending-up"></i></div>
+                    <h3>Quality as a standard</h3>
+                    <p class="d" contenteditable="true">Raising the floor on what ships — never compromising on craft for speed.</p>
+                    <div class="ex" contenteditable="true">Type, grid and detail discipline visible across every recent campaign.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. 90 DAY PLAN -->
+    <section class="dark reveal">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow" style="color:#95B8CB">The commitment</span>
+                <h2 style="color:var(--dark-text)">First 90 days, <span class="it" style="color:#BDE4FF">in writing.</span></h2>
+                <p class="lead desc" style="color:#B8D4E3">A contract, not a leap of faith. Four commitments with timelines.</p>
+            </div>
+            <div class="plan-list">
+                <div class="plan-item">
+                    <div class="plan-num">01</div>
+                    <div class="plan-body">
+                        <h3>Weekly design reviews</h3>
+                        <p contenteditable="true">Stand up a recurring forum where every shipped creative is critiqued against goals, performance and brand. Lift the floor on quality across the team.</p>
+                        <span class="plan-target"><i class="ti ti-target"></i> A weekly review cadence, live by week 2</span>
+                    </div>
+                    <div class="plan-time">Week 1–2</div>
+                </div>
+                <div class="plan-item">
+                    <div class="plan-num">02</div>
+                    <div class="plan-body">
+                        <h3>Design-to-performance feedback loop</h3>
+                        <p contenteditable="true">Close the loop between what we shipped and what the numbers said. Build a simple dashboard of design hypotheses vs results — so every creative decision compounds.</p>
+                        <span class="plan-target"><i class="ti ti-target"></i> Monthly creative performance read-out</span>
+                    </div>
+                    <div class="plan-time">Month 1–2</div>
+                </div>
+                <div class="plan-item">
+                    <div class="plan-num">03</div>
+                    <div class="plan-body">
+                        <h3>Brand SOPs & design system</h3>
+                        <p contenteditable="true">Document the type, grid, colour and component logic the team is already using informally — so onboarding, resizing and adaptations stop costing senior time.</p>
+                        <span class="plan-target"><i class="ti ti-target"></i> A first version of the system, used by the team</span>
+                    </div>
+                    <div class="plan-time">Week 3–7</div>
+                </div>
+                <div class="plan-item">
+                    <div class="plan-num">04</div>
+                    <div class="plan-body">
+                        <h3>AI automation pilot</h3>
+                        <p contenteditable="true">Pilot one end-to-end AI workflow — likely listing creative resize and adaptation — and measure the time it gives back. If it works, scale to two more.</p>
+                        <span class="plan-target"><i class="ti ti-target"></i> Quantified hours saved per week</span>
+                    </div>
+                    <div class="plan-time">Month 2–3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. META ADS -->
+    <section class="alt reveal">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Meta Ads · Performance creative</span>
+                <h2>The creatives <span class="it">that worked.</span></h2>
+                <p class="lead desc">Click any creative to see what it delivered.</p>
+            </div>
+            <div class="showcase" data-showcase="meta"></div>
+        </div>
+    </section>
+
+    <!-- 3. MARKETPLACES -->
+    <section class="reveal">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Marketplaces · Amazon listings & A+ content</span>
+                <h2>Listings that <span class="it">earn the click.</span></h2>
+                <p class="lead desc">Amazon listings, A+ content, and product imagery — designed to convert at every stage.</p>
+            </div>
+
+            <div class="bento-tabs" role="tablist" aria-label="Products">
+                <button class="bento-tab is-active" type="button" data-bento-tab="0" role="tab">
+        <span class="num">01</span>
+        <span class="name" contenteditable="true" data-key="bento-prod-0">Product One</span>
+      </button>
+                <button class="bento-tab" type="button" data-bento-tab="1" role="tab">
+        <span class="num">02</span>
+        <span class="name" contenteditable="true" data-key="bento-prod-1">Product Two</span>
+      </button>
+                <button class="bento-tab" type="button" data-bento-tab="2" role="tab">
+        <span class="num">03</span>
+        <span class="name" contenteditable="true" data-key="bento-prod-2">Product Three</span>
+      </button>
+                <button class="bento-tab" type="button" data-bento-tab="3" role="tab">
+        <span class="num">04</span>
+        <span class="name" contenteditable="true" data-key="bento-prod-3">Product Four</span>
+      </button>
+            </div>
+
+            <div class="bento-grid">
+                <div class="bento-card bento-1">
+                    <div class="bento-head">
+                        <h3 contenteditable="true" data-key="bento-h-hero">Hero shot</h3>
+                        <p class="bento-sub" contenteditable="true" data-key="bento-s-hero">The first frame on the PDP.</p>
+                    </div>
+                    <div class="bento-slot" data-bento-slot="hero">
+                        <div class="upload-zone">
+                            <div class="ic"><i class="ti ti-photo-plus"></i></div>
+                            <div class="t">Click to upload</div>
+                            <div class="h">Hero shot</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bento-card bento-2">
+                    <div class="bento-head">
+                        <h3 contenteditable="true" data-key="bento-h-info">Infographic</h3>
+                        <p class="bento-sub" contenteditable="true" data-key="bento-s-info">Where the claim does the work.</p>
+                    </div>
+                    <div class="bento-slot" data-bento-slot="info">
+                        <div class="upload-zone">
+                            <div class="ic"><i class="ti ti-chart-bar"></i></div>
+                            <div class="t">Click to upload</div>
+                            <div class="h">Infographic</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bento-card bento-3">
+                    <div class="bento-head">
+                        <h3 contenteditable="true" data-key="bento-h-aplus">A+ Content</h3>
+                        <p class="bento-sub" contenteditable="true" data-key="bento-s-aplus">Brand story, scrollable.</p>
+                    </div>
+                    <div class="bento-slot" data-bento-slot="aplus">
+                        <div class="upload-zone">
+                            <div class="ic"><i class="ti ti-layout-board-split"></i></div>
+                            <div class="t">Click to upload</div>
+                            <div class="h">A+ Banner</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bento-card bento-4">
+                    <div class="bento-head">
+                        <h3 contenteditable="true" data-key="bento-h-compare">Comparison</h3>
+                        <p class="bento-sub" contenteditable="true" data-key="bento-s-compare">Why us over them.</p>
+                    </div>
+                    <div class="bento-slot" data-bento-slot="compare">
+                        <div class="upload-zone">
+                            <div class="ic"><i class="ti ti-columns-2"></i></div>
+                            <div class="t">Click to upload</div>
+                            <div class="h">Comparison</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. ROI -->
+    <section class="alt reveal">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">The math · Hire externally vs. promote</span>
+                <h2>Promoting me is <span class="it">cheaper, faster, safer.</span></h2>
+                <p class="lead desc">A side-by-side on what each path actually costs.</p>
+            </div>
+            <div class="roi">
+                <div class="roi-col">
+                    <div class="roi-head">
+                        <div class="l">Hire externally</div>
+                        <h3>The market route</h3>
+                    </div>
+                    <div class="roi-row"><span class="l">Recruitment fee</span><span class="v">₹<span class="ph" contenteditable="true">1.2–1.5L</span></span>
+                    </div>
+                    <div class="roi-row"><span class="l">Time to hire</span><span class="v"><span class="ph" contenteditable="true">2–3</span> months</span>
+                    </div>
+                    <div class="roi-row"><span class="l">Onboarding</span><span class="v"><span class="ph" contenteditable="true">3–6</span> months</span>
+                    </div>
+                    <div class="roi-row"><span class="l">Brand learning</span><span class="v">Significant</span></div>
+                    <div class="roi-row"><span class="l">Market salary</span><span class="v"><span class="ph" contenteditable="true">12–15</span> LPA</span>
+                    </div>
+                    <div class="roi-row"><span class="l">Risk</span><span class="v">High</span></div>
+                </div>
+                <div class="roi-col accent">
+                    <div class="roi-head">
+                        <div class="l">Promote internally</div>
+                        <h3>The known quantity</h3>
+                    </div>
+                    <div class="roi-row"><span class="l">Recruitment fee</span><span class="v">₹0</span></div>
+                    <div class="roi-row"><span class="l">Transition gap</span><span class="v">Same day</span></div>
+                    <div class="roi-row"><span class="l">Time to full speed</span><span class="v">Immediate</span></div>
+                    <div class="roi-row"><span class="l">Brand knowledge</span><span class="v"><span class="ph" contenteditable="true">5+</span> yrs, deep</span>
+                    </div>
+                    <div class="roi-row"><span class="l">Salary ask</span><span class="v"><span class="ph" contenteditable="true">10–12</span> LPA</span>
+                    </div>
+                    <div class="roi-row"><span class="l">Risk</span><span class="v">Proven, known</span></div>
+                </div>
+            </div>
+            <div class="roi-note">
+                Promoting internally saves <b>₹<span class="ph" contenteditable="true" style="background-color: rgb(255, 255, 255)"><span style="color: rgb(228, 189, 148)">1.2–1.5L</span></span></b> in recruitment alone — and eliminates <b><span class="ph" contenteditable="true"><span style="color: rgb(233, 194, 152)">6–9</span></span> months</b>                of ramp-up. Lower cost, lower risk, delivers from day one.
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. THE CASE, IN ONE LINE (closing) -->
+    <section class="dark reveal">
+        <div class="container ask-wrap">
+            <span class="eyebrow">The case, in one line</span>
+            <h2>You’re not approving a promotion. <span class="it">You’re recognising one.</span></h2>
+
+            <div class="closer-rows">
+                <div class="closer-row">
+                    <span class="closer-label">Performance</span>
+                    <span class="closer-line">The numbers already say <em>Design Lead.</em></span>
+                </div>
+                <div class="closer-row">
+                    <span class="closer-label">Leadership</span>
+                    <span class="closer-line">The team already <em>operates</em> that way.</span>
+                </div>
+                <div class="closer-row">
+                    <span class="closer-label">Future</span>
+                    <span class="closer-line">The 90-day plan is <em>already written.</em></span>
+                </div>
+            </div>
+
+            <p class="ask-close">No ramp-up. No risk premium. No learning curve on the brand. The work I’m describing isn’t ahead of me — it’s behind me. Make the title catch up to the role.</p>
+            <div class="ask-sign" contenteditable="true">Mohit</div>
+            <div class="ask-meta"><span contenteditable="true">Sr. Graphic Designer</span> · <span contenteditable="true">Agile Ventures</span> · <span contenteditable="true">2026</span></div>
+        </div>
+    </section>
+
+    <!-- 11. FOOTER -->
+    <footer class="foot">
+        <div class="container">
+            Mohit · Case for Design Lead · Prepared for the appraisal review at Agile Ventures.
+        </div>
+    </footer>
+
+    <button class="edit-toggle" id="editToggle" type="button"><i class="ti ti-pencil"></i><span>Edit</span></button>
+    <input type="file" class="uploader" id="uploader" accept="image/*">
+
+    <script>
+        /* ---------- Data for showcases ---------- */
+        const SHOWCASES = {
+            meta: {
+                pillLabel: 'Meta Ads',
+                creatives: [{
+                    name: 'Bulk Orders',
+                    tag: 'Sales',
+                    ctx: 'B2B bulk-buy push · festive window',
+                    call: 'Stripped the offer to one number on a calm, high-contrast layout — the message did the work, not the design.',
+                    defaultImg: 'assets/meta-ads/01.jpg',
+                    metrics: [{
+                        l: 'CTR',
+                        before: '1.4%',
+                        after: '3.2%'
+                    }, {
+                        l: 'Revenue lift',
+                        after: '₹12.5L'
+                    }]
+                }, {
+                    name: 'Sales Campaign',
+                    tag: 'Sales',
+                    ctx: 'End-of-season clearance · 7-day burst',
+                    call: 'Mono-product hero with a typographic stack — no clutter, only the price did the talking.',
+                    defaultImg: 'assets/meta-ads/02.jpg',
+                    metrics: [{
+                        l: 'CPM',
+                        before: '₹220',
+                        after: '₹148'
+                    }, {
+                        l: 'ROAS',
+                        after: '4.2×'
+                    }]
+                }, {
+                    name: 'Lead Gen',
+                    tag: 'Leads',
+                    ctx: 'Mid-funnel for service tier · always-on',
+                    call: 'Used a real customer face + one promise. Generic stock visuals consistently lost in A/B.',
+                    defaultImg: 'assets/meta-ads/03.jpg',
+                    metrics: [{
+                        l: 'Cost per lead',
+                        before: '₹186',
+                        after: '₹92'
+                    }, {
+                        l: 'Leads',
+                        after: '1,240'
+                    }]
+                }, {
+                    name: 'Awareness',
+                    tag: 'Awareness',
+                    ctx: 'Top-funnel category framing',
+                    call: 'Treated the ad as editorial — large headline, single image, one credit line. Stopped the scroll.',
+                    defaultImg: 'assets/meta-ads/04.png',
+                    metrics: [{
+                        l: 'Reach',
+                        after: '1.8M'
+                    }, {
+                        l: 'Brand recall lift',
+                        after: '+22%'
+                    }]
+                }, {
+                    name: 'Carousel Set',
+                    tag: 'Sales',
+                    ctx: 'Product carousel · category leader',
+                    call: 'Each card framed one use-case — the carousel became a mini-catalogue, not five copies of the same ad.',
+                    defaultImg: 'assets/meta-ads/05.jpg',
+                    metrics: [{
+                        l: 'Swipe-through',
+                        after: '62%'
+                    }, {
+                        l: 'Purchases',
+                        after: '418'
+                    }]
+                }, {
+                    name: 'Reels Hook',
+                    tag: 'Video',
+                    ctx: 'Short-form Reels · hook-first edit',
+                    call: 'First 1.5s carries the entire promise. Cuts paced to the offer, not the music.',
+                    defaultImg: 'assets/meta-ads/06.jpg',
+                    metrics: [{
+                        l: 'Hook rate',
+                        after: '42%'
+                    }, {
+                        l: 'View-through',
+                        after: '+58%'
+                    }]
+                }]
+            },
+            google: {
+                pillLabel: 'Google Ads',
+                creatives: [{
+                    name: 'Display Set A',
+                    tag: 'Display',
+                    ctx: 'Retargeting · cart abandoners',
+                    call: 'Designed each size as its own composition — no naive auto-resize. Hierarchy held at 300×250.',
+                    metrics: [{
+                        l: 'CTR',
+                        before: '0.42%',
+                        after: '1.18%'
+                    }, {
+                        l: 'Conversion rate',
+                        after: '3.6%'
+                    }, {
+                        l: 'CPA',
+                        before: '₹420',
+                        after: '₹212'
+                    }, {
+                        l: 'ROAS',
+                        after: '5.1×'
+                    }]
+                }, {
+                    name: 'Display Set B',
+                    tag: 'Display',
+                    ctx: 'Prospecting · in-market audiences',
+                    call: 'Switched from product-on-white to lifestyle context — and let the offer breathe.',
+                    metrics: [{
+                        l: 'Impressions',
+                        after: '4.2M'
+                    }, {
+                        l: 'CTR',
+                        after: '0.9%'
+                    }, {
+                        l: 'Conversions',
+                        after: '318'
+                    }, {
+                        l: 'Cost / conv.',
+                        after: '₹284'
+                    }]
+                }, {
+                    name: 'Shopping',
+                    tag: 'Shopping',
+                    ctx: 'Product feed creative pass',
+                    call: 'Reshot and re-cropped feed images for legibility at thumbnail size — small change, big lift.',
+                    metrics: [{
+                        l: 'CTR',
+                        before: '0.8%',
+                        after: '2.1%'
+                    }, {
+                        l: 'Conversion rate',
+                        after: '4.2%'
+                    }, {
+                        l: 'Units sold',
+                        after: '2,140'
+                    }, {
+                        l: 'Revenue',
+                        after: '₹38.4L'
+                    }]
+                }]
+            },
+            amazon: {
+                pillLabel: 'Marketplaces',
+                creatives: [{
+                    name: 'Listing One',
+                    tag: 'PDP',
+                    ctx: 'Hero product · category-leader push',
+                    call: 'Top 3 images carry one claim each — re-ranked by what shoppers actually compare.',
+                    metrics: [{
+                        l: 'Conversion rate',
+                        before: '8.2%',
+                        after: '14.6%'
+                    }, {
+                        l: 'Sessions',
+                        after: '62K / mo'
+                    }, {
+                        l: 'Units ordered',
+                        after: '9,050'
+                    }, {
+                        l: 'Star rating',
+                        after: '4.7'
+                    }]
+                }, {
+                    name: 'Listing Two',
+                    tag: 'PDP',
+                    ctx: 'New-launch SKU · build BSR',
+                    call: 'Used a visible scale reference in the hero — kills "smaller than I thought" returns.',
+                    metrics: [{
+                        l: 'Conversion rate',
+                        after: '11.8%'
+                    }, {
+                        l: 'BSR',
+                        before: '#412',
+                        after: '#48'
+                    }, {
+                        l: 'Return rate',
+                        before: '9.1%',
+                        after: '4.4%'
+                    }, {
+                        l: 'Revenue lift',
+                        after: '+62%'
+                    }]
+                }, {
+                    name: 'A+ Content',
+                    tag: 'A+',
+                    ctx: 'Brand story + comparison module',
+                    call: 'Editorial layout, not a brochure. Comparison module placed above use-cases — sequence matters.',
+                    metrics: [{
+                        l: 'Conversion rate',
+                        after: '+18%'
+                    }, {
+                        l: 'Time on page',
+                        after: '1m 42s'
+                    }, {
+                        l: 'Brand recall',
+                        after: '+27%'
+                    }, {
+                        l: 'A+ adoption',
+                        after: '7 SKUs'
+                    }]
+                }]
+            }
+        };
+
+        /* ---------- localStorage utilities ---------- */
+        const LS_KEY = 'mohit-appraisal-v1';
+        let store = {};
+        try {
+            store = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
+        } catch (e) {
+            store = {};
+        }
+
+        function persist() {
+            try {
+                localStorage.setItem(LS_KEY, JSON.stringify(store));
+            } catch (e) {
+                if (e && (e.name === 'QuotaExceededError' || /quota/i.test(e.message))) {
+                    flashBanner('Storage is full — recent image upload may not persist. Try resetting old images.');
+                }
+            }
+        }
+
+        function flashBanner(msg) {
+            const b = document.querySelector('.edit-banner');
+            if (!b) return;
+            const old = b.innerHTML;
+            b.innerHTML = msg;
+            b.style.display = 'block';
+            setTimeout(() => {
+                b.innerHTML = old;
+                if (!document.body.classList.contains('edit-on')) b.style.display = '';
+            }, 4000);
+        }
+
+        /* ---------- Render showcases ---------- */
+        function buildShowcase(rootEl, key) {
+            const data = SHOWCASES[key];
+            const tabsEl = document.createElement('div');
+            tabsEl.className = 'tabs';
+            const panelsWrap = document.createElement('div');
+            data.creatives.forEach((c, i) => {
+                const id = `${key}-${i}`;
+                const tab = document.createElement('button');
+                tab.type = 'button';
+                tab.className = 'tab' + (i === 0 ? ' is-active' : '');
+                tab.dataset.target = id;
+                tab.innerHTML = `<span class="num">${String(i+1).padStart(2,'0')}</span><span class="name" data-key="${id}-name" contenteditable="true">${c.name}</span>`;
+                tabsEl.appendChild(tab);
+
+                const panel = document.createElement('div');
+                panel.className = 'panel' + (i === 0 ? ' is-active' : '');
+                panel.id = id;
+                const metricsHtml = c.metrics.map((m, mi) => {
+                    let v;
+                    if (m.before) {
+                        v = `<span class="before ph" contenteditable="true" data-key="${id}-m${mi}-before">${m.before}</span><span class="after ph" contenteditable="true" data-key="${id}-m${mi}-after">${m.after}</span>`;
+                    } else {
+                        v = `<span class="ph" contenteditable="true" data-key="${id}-m${mi}-v">${m.after}</span>`;
+                    }
+                    return `<div class="metric"><div class="l" contenteditable="true" data-key="${id}-m${mi}-l">${m.l}</div><div class="v">${v}</div></div>`;
+                }).join('');
+                panel.innerHTML = `
+      <div class="creative-img" data-img="${id}-img" data-default-img="${c.defaultImg || ''}">
+        <div class="upload-zone">
+          <div class="ic"><i class="ti ti-photo-plus"></i></div>
+          <div class="t">Click to upload creative</div>
+          <div class="h">${data.pillLabel}</div>
+        </div>
+      </div>
+      <div class="creative-info">
+        <div class="tag-row">
+          <span class="pill" data-key="${id}-tag" contenteditable="true">${c.tag}</span>
+          <span class="ctx" data-key="${id}-ctx" contenteditable="true">${c.ctx}</span>
+        </div>
+        <h3 class="c-name serif" data-key="${id}-cname" contenteditable="true">${c.name}</h3>
+        <div class="metric-grid">${metricsHtml}</div>
+        <div class="call-out">
+          <div class="l">The design call</div>
+          <div class="b" data-key="${id}-call" contenteditable="true">${c.call}</div>
+        </div>
+      </div>`;
+                panelsWrap.appendChild(panel);
+            });
+            rootEl.appendChild(tabsEl);
+            rootEl.appendChild(panelsWrap);
+        }
+        ['meta'].forEach(k => buildShowcase(document.querySelector(`[data-showcase="${k}"]`), k));
+
+        /* ---------- Bento (Marketplaces) ---------- */
+        // Default images per (product index, slot key) — used when the user hasn't
+        // uploaded anything yet for that slot. Uploads via edit mode override these.
+        const BENTO_DEFAULTS = {
+            '0-hero': 'assets/products/p1/1.jpg',
+            '0-info': 'assets/products/p1/2.jpg',
+            '0-aplus': 'assets/products/p1/3.jpg',
+            '0-compare': 'assets/products/p1/4.jpg',
+            '1-hero': 'assets/products/p2/1.jpg',
+            '1-info': 'assets/products/p2/2.jpg',
+            '1-aplus': 'assets/products/p2/3.jpg',
+            '1-compare': 'assets/products/p2/4.jpg',
+            '2-hero': 'assets/products/p3/1.jpg',
+            '2-info': 'assets/products/p3/2.jpg',
+            '2-aplus': 'assets/products/p3/3.jpg',
+            '2-compare': 'assets/products/p3/4.jpg',
+            '3-hero': 'assets/products/p4/1.jpg',
+            '3-info': 'assets/products/p4/2.jpg',
+            '3-aplus': 'assets/products/p4/3.jpg',
+            '3-compare': 'assets/products/p4/4.jpg',
+        };
+
+        function getActiveBento() {
+            return (store.bento && Number.isInteger(store.bento.active)) ? store.bento.active : 0;
+        }
+
+        function setActiveBento(i) {
+            store.bento = store.bento || {};
+            store.bento.active = i;
+            persist();
+        }
+
+        function syncBento() {
+            const active = getActiveBento();
+            document.querySelectorAll('.bento-tab').forEach((t) => {
+                t.classList.toggle('is-active', Number(t.dataset.bentoTab) === active);
+            });
+            document.querySelectorAll('.bento-slot').forEach(slot => {
+                const slotKey = slot.dataset.bentoSlot;
+                const imgKey = `bento-${active}-${slotKey}`;
+                slot.dataset.img = imgKey;
+                const url = (store.img && store.img[imgKey]) || BENTO_DEFAULTS[`${active}-${slotKey}`];
+                if (url) {
+                    slot.style.backgroundImage = `url(${url})`;
+                    slot.classList.add('has-img');
+                } else {
+                    slot.style.backgroundImage = '';
+                    slot.classList.remove('has-img');
+                }
+            });
+        }
+        document.querySelectorAll('.bento-tab').forEach(tab => {
+            tab.addEventListener('click', e => {
+                // don't switch tab if user clicked into the editable name
+                if (e.target.matches('[contenteditable="true"]')) return;
+                setActiveBento(Number(tab.dataset.bentoTab));
+                syncBento();
+            });
+        });
+        syncBento();
+
+        /* ---------- Hydrate from localStorage ---------- */
+        function hydrate() {
+            // text edits
+            document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+                const key = el.dataset.key;
+                if (key && store.text && store.text[key] != null) {
+                    el.innerHTML = store.text[key];
+                }
+            });
+            // images
+            document.querySelectorAll('[data-img]').forEach(el => {
+                const key = el.dataset.img;
+                const url = (store.img && store.img[key]) || el.dataset.defaultImg;
+                if (url) {
+                    el.style.backgroundImage = `url(${url})`;
+                    el.classList.add('has-img');
+                }
+            });
+        }
+        hydrate();
+
+        /* ---------- Wire contenteditable persistence ---------- */
+        document.addEventListener('input', e => {
+            const t = e.target;
+            if (!(t.matches && t.matches('[contenteditable="true"]'))) return;
+            const key = t.dataset.key || autoKey(t);
+            if (!key) return;
+            store.text = store.text || {};
+            store.text[key] = t.innerHTML;
+            persist();
+        });
+        let _autoIdx = 0;
+
+        function autoKey(el) {
+            if (el.dataset.autoKey) return el.dataset.autoKey;
+            const k = 'auto-' + (_autoIdx++);
+            el.dataset.autoKey = k;
+            return k;
+        }
+
+        /* ---------- Tab switching ---------- */
+        document.addEventListener('click', e => {
+            const tab = e.target.closest('.tab');
+            if (!tab) return;
+            if (e.target.matches('[contenteditable="true"]')) return; // editing the tab name
+            const showcase = tab.closest('.showcase');
+            const id = tab.dataset.target;
+            showcase.querySelectorAll('.tab').forEach(t => t.classList.toggle('is-active', t === tab));
+            showcase.querySelectorAll('.panel').forEach(p => p.classList.toggle('is-active', p.id === id));
+        });
+
+        /* ---------- Image upload ---------- */
+        const uploader = document.getElementById('uploader');
+        let pendingImgKey = null;
+        document.addEventListener('click', e => {
+            const z = e.target.closest('[data-img]');
+            if (!z) return;
+            if (!document.body.classList.contains('edit-on')) return;
+            pendingImgKey = z.dataset.img;
+            uploader.value = '';
+            uploader.click();
+        });
+        uploader.addEventListener('change', () => {
+            const file = uploader.files && uploader.files[0];
+            if (!file || !pendingImgKey) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+                const url = reader.result;
+                const target = document.querySelector(`[data-img="${pendingImgKey}"]`);
+                if (target) {
+                    target.style.backgroundImage = `url(${url})`;
+                    target.classList.add('has-img');
+                }
+                store.img = store.img || {};
+                store.img[pendingImgKey] = url;
+                persist();
+            };
+            reader.readAsDataURL(file);
+        });
+
+        /* ---------- Edit toggle ---------- */
+        const toggle = document.getElementById('editToggle');
+        toggle.addEventListener('click', () => {
+            const on = document.body.classList.toggle('edit-on');
+            toggle.querySelector('span').textContent = on ? 'Done' : 'Edit';
+            toggle.querySelector('i').className = on ? 'ti ti-check' : 'ti ti-pencil';
+        });
+
+        document.getElementById('resetAll').addEventListener('click', () => {
+            if (!confirm('Reset all edits and uploaded images?')) return;
+            localStorage.removeItem(LS_KEY);
+            location.reload();
+        });
+
+        /* ---------- Scroll reveal ---------- */
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(en => {
+                if (en.isIntersecting) {
+                    en.target.classList.add('in');
+                    io.unobserve(en.target);
+                }
+            });
+        }, {
+            threshold: 0.08,
+            rootMargin: '0px 0px -40px 0px'
+        });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    </script>
+
+    <!-- ─── Tweaks panel (vanilla JS — no React/Babel needed) ──────────── -->
+    <style>
+        .twk-panel {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            z-index: 2147483646;
+            width: 280px;
+            max-height: calc(100vh - 32px);
+            display: none;
+            flex-direction: column;
+            background: rgba(250, 249, 247, .92);
+            color: #29261b;
+            -webkit-backdrop-filter: blur(24px) saturate(160%);
+            backdrop-filter: blur(24px) saturate(160%);
+            border: .5px solid rgba(255, 255, 255, .6);
+            border-radius: 14px;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset, 0 12px 40px rgba(0, 0, 0, .18);
+            font: 11.5px/1.4 ui-sans-serif, system-ui, -apple-system, sans-serif;
+            overflow: hidden
+        }
+        
+        .twk-panel.is-open {
+            display: flex
+        }
+        
+        .twk-hd {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 8px 10px 14px;
+            cursor: move;
+            user-select: none;
+            border-bottom: .5px solid rgba(0, 0, 0, .07)
+        }
+        
+        .twk-hd b {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .01em
+        }
+        
+        .twk-x {
+            appearance: none;
+            border: 0;
+            background: transparent;
+            color: rgba(41, 38, 27, .55);
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            line-height: 22px;
+            display: grid;
+            place-items: center
+        }
+        
+        .twk-x:hover {
+            background: rgba(0, 0, 0, .06);
+            color: #29261b
+        }
+        
+        .twk-body {
+            padding: 10px 14px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            min-height: 0;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, .15) transparent
+        }
+        
+        .twk-body::-webkit-scrollbar {
+            width: 6px
+        }
+        
+        .twk-body::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, .15);
+            border-radius: 4px
+        }
+        
+        .twk-row {
+            display: flex;
+            flex-direction: column;
+            gap: 5px
+        }
+        
+        .twk-lbl {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            color: rgba(41, 38, 27, .72);
+            font-weight: 500;
+            font-size: 11px
+        }
+        
+        .twk-sect {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: rgba(41, 38, 27, .4);
+            padding: 6px 0 0;
+            margin-top: 2px
+        }
+        
+        .twk-sect:first-child {
+            padding-top: 0;
+            margin-top: 0
+        }
+        /* Color chips */
+        
+        .twk-chips {
+            display: flex;
+            gap: 6px
+        }
+        
+        .twk-chip {
+            position: relative;
+            flex: 1;
+            min-width: 0;
+            height: 46px;
+            padding: 0;
+            border: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 0 0 .5px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .06);
+            transition: transform .12s, box-shadow .12s
+        }
+        
+        .twk-chip:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 0 .5px rgba(0, 0, 0, .18), 0 4px 10px rgba(0, 0, 0, .12)
+        }
+        
+        .twk-chip[data-on="1"] {
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, .82), 0 2px 6px rgba(0, 0, 0, .15)
+        }
+        
+        .twk-chip-stripes {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 34%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -1px 0 0 rgba(0, 0, 0, .1)
+        }
+        
+        .twk-chip-stripes span {
+            flex: 1;
+            box-shadow: 0 -1px 0 rgba(0, 0, 0, .08)
+        }
+        
+        .twk-chip-stripes span:first-child {
+            box-shadow: none
+        }
+        
+        .twk-chip svg {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 13px;
+            height: 13px;
+            filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .3))
+        }
+        /* Segmented radio */
+        
+        .twk-seg {
+            position: relative;
+            display: flex;
+            padding: 2px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, .06);
+            user-select: none
+        }
+        
+        .twk-seg-thumb {
+            position: absolute;
+            top: 2px;
+            bottom: 2px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, .92);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .14);
+            transition: left .15s cubic-bezier(.3, .7, .4, 1), width .15s;
+            pointer-events: none
+        }
+        
+        .twk-seg button {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            border: 0;
+            background: transparent;
+            color: rgba(41, 38, 27, .7);
+            font: inherit;
+            font-weight: 500;
+            min-height: 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 4px 6px;
+            line-height: 1.2;
+            font-size: 11px;
+            transition: color .1s
+        }
+        
+        .twk-seg button[data-on="1"] {
+            color: #29261b
+        }
+        /* Tweaks open button */
+        
+        .twk-open-btn {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 55;
+            background: var(--ink);
+            color: var(--bg);
+            border: 0;
+            border-radius: 999px;
+            padding: 10px 16px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 6px 20px rgba(22, 20, 19, 0.18);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        
+        .twk-open-btn:hover {
+            transform: translateY(-1px)
+        }
+        
+        .twk-open-btn svg {
+            width: 15px;
+            height: 15px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+    </style>
+
+    <!-- Tweaks trigger button -->
+    <button class="twk-open-btn" id="tweaksToggle" aria-label="Open tweaks panel">
+  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+  <span>Tweaks</span>
+</button>
+
+    <!-- Tweaks panel -->
+    <div class="twk-panel" id="tweaksPanel" role="dialog" aria-label="Visual tweaks">
+        <div class="twk-hd" id="tweaksDragHandle">
+            <b>Tweaks</b>
+            <button class="twk-x" id="tweaksClose" aria-label="Close tweaks">✕</button>
+        </div>
+        <div class="twk-body">
+            <div class="twk-sect">Mood</div>
+            <div class="twk-row">
+                <div class="twk-lbl"><span>Palette</span></div>
+                <div class="twk-chips" id="palChips" role="radiogroup" aria-label="Palette"></div>
+            </div>
+            <div class="twk-sect">Voice</div>
+            <div class="twk-row">
+                <div class="twk-lbl"><span>Typography</span></div>
+                <div class="twk-seg" id="voiceSeg" role="radiogroup" aria-label="Typography">
+                    <div class="twk-seg-thumb" id="voiceThumb"></div>
+                    <button type="button" data-v="editorial" data-on="0">Editorial</button>
+                    <button type="button" data-v="modern" data-on="0">Modern</button>
+                    <button type="button" data-v="print" data-on="0">Print</button>
+                </div>
+            </div>
+            <div class="twk-sect">Pace</div>
+            <div class="twk-row">
+                <div class="twk-lbl"><span>Rhythm</span></div>
+                <div class="twk-seg" id="paceSeg" role="radiogroup" aria-label="Rhythm">
+                    <div class="twk-seg-thumb" id="paceThumb"></div>
+                    <button type="button" data-v="composed" data-on="0">Composed</button>
+                    <button type="button" data-v="generous" data-on="0">Generous</button>
+                    <button type="button" data-v="tight" data-on="0">Tight</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ── Tweaks panel: pure vanilla JS ─────────────────────────────────── */
+        (function() {
+            const DEFAULTS = {
+                palette: 'cream',
+                voice: 'modern',
+                pace: 'composed'
+            };
+            const PALETTES = {
+                cream: ['#DFF1FF', '#5FA8D3', '#1B4965', '#C7E3F3'],
+                paper: ['#FAFAF7', '#B23B30', '#15151A', '#F1EFE8'],
+                dusk: ['#E8DCC0', '#5A6B3E', '#1F1C16', '#DCCFB0'],
+            };
+            const PAL_KEYS = Object.keys(PALETTES);
+            const LS_TWEAK = 'mohit-tweaks-v1';
+
+            // Load saved tweaks
+            let saved = {};
+            try {
+                saved = JSON.parse(localStorage.getItem(LS_TWEAK) || '{}');
+            } catch (e) {}
+            const state = Object.assign({}, DEFAULTS, saved);
+
+            function saveTweaks() {
+                try {
+                    localStorage.setItem(LS_TWEAK, JSON.stringify(state));
+                } catch (e) {}
+            }
+
+            function applyTweaks() {
+                const r = document.documentElement;
+                r.dataset.palette = state.palette;
+                r.dataset.voice = state.voice;
+                r.dataset.pace = state.pace;
+            }
+
+            // ── Luminance helper for checkmark contrast
+            function isLight(hex) {
+                const h = String(hex).replace('#', '');
+                const x = h.length === 3 ? h.replace(/./g, c => c + c) : h.padEnd(6, '0');
+                const n = parseInt(x.slice(0, 6), 16);
+                if (Number.isNaN(n)) return true;
+                const r = (n >> 16) & 255,
+                    g = (n >> 8) & 255,
+                    b = n & 255;
+                return r * 299 + g * 587 + b * 114 > 148000;
+            }
+
+            // ── Build palette chips
+            function buildPalChips() {
+                const wrap = document.getElementById('palChips');
+                wrap.innerHTML = '';
+                PAL_KEYS.forEach(key => {
+                    const colors = PALETTES[key];
+                    const [hero, ...rest] = colors;
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'twk-chip';
+                    btn.title = key;
+                    btn.setAttribute('role', 'radio');
+                    btn.dataset.on = state.palette === key ? '1' : '0';
+                    btn.style.background = hero;
+                    // Stripe column
+                    if (rest.length) {
+                        const col = document.createElement('div');
+                        col.className = 'twk-chip-stripes';
+                        rest.slice(0, 3).forEach(c => {
+                            const s = document.createElement('span');
+                            s.style.background = c;
+                            col.appendChild(s);
+                        });
+                        btn.appendChild(col);
+                    }
+                    // Checkmark if selected
+                    if (state.palette === key) {
+                        const light = isLight(hero);
+                        btn.insertAdjacentHTML('beforeend',
+                            `<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.2 5.8 10 11 4.2" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke="${light?'rgba(0,0,0,.78)':'#fff'}"/></svg>`);
+                    }
+                    btn.addEventListener('click', () => {
+                        state.palette = key;
+                        saveTweaks();
+                        applyTweaks();
+                        buildPalChips();
+                    });
+                    wrap.appendChild(btn);
+                });
+            }
+
+            // ── Segmented radio helper
+            function initSeg(segId, thumbId, stateKey, options) {
+                const seg = document.getElementById(segId);
+                const thumb = document.getElementById(thumbId);
+                const btns = seg.querySelectorAll('button');
+
+                function positionThumb(idx) {
+                    const n = btns.length;
+                    thumb.style.left = `calc(2px + ${idx} * (100% - 4px) / ${n})`;
+                    thumb.style.width = `calc((100% - 4px) / ${n})`;
+                }
+
+                function activate(val) {
+                    state[stateKey] = val;
+                    saveTweaks();
+                    applyTweaks();
+                    btns.forEach(b => {
+                        b.dataset.on = b.dataset.v === val ? '1' : '0';
+                    });
+                    const idx = options.indexOf(val);
+                    if (idx >= 0) positionThumb(idx);
+                }
+
+                // Initial position
+                const initIdx = options.indexOf(state[stateKey]);
+                positionThumb(initIdx >= 0 ? initIdx : 0);
+                btns.forEach(b => {
+                    b.dataset.on = b.dataset.v === state[stateKey] ? '1' : '0';
+                });
+
+                // Click and pointer-drag
+                seg.addEventListener('pointerdown', e => {
+                    const hit = (x) => {
+                        const r = seg.getBoundingClientRect();
+                        const n = btns.length;
+                        const i = Math.floor(((x - r.left - 2) / (r.width - 4)) * n);
+                        return options[Math.max(0, Math.min(n - 1, i))];
+                    };
+                    activate(hit(e.clientX));
+                    const move = ev => activate(hit(ev.clientX));
+                    const up = () => {
+                        window.removeEventListener('pointermove', move);
+                        window.removeEventListener('pointerup', up);
+                    };
+                    window.addEventListener('pointermove', move);
+                    window.addEventListener('pointerup', up);
+                });
+            }
+
+            // ── Drag panel
+            function initDrag(panel) {
+                const handle = document.getElementById('tweaksDragHandle');
+                let offX = 16,
+                    offY = 16;
+                panel.style.right = offX + 'px';
+                panel.style.bottom = offY + 'px';
+
+                function clamp() {
+                    const w = panel.offsetWidth,
+                        h = panel.offsetHeight;
+                    const PAD = 12;
+                    offX = Math.min(Math.max(PAD, offX), window.innerWidth - w - PAD);
+                    offY = Math.min(Math.max(PAD, offY), window.innerHeight - h - PAD);
+                    panel.style.right = offX + 'px';
+                    panel.style.bottom = offY + 'px';
+                }
+
+                handle.addEventListener('mousedown', e => {
+                    if (e.target.closest('.twk-x')) return;
+                    const r = panel.getBoundingClientRect();
+                    const sx = e.clientX,
+                        sy = e.clientY;
+                    const startR = window.innerWidth - r.right,
+                        startB = window.innerHeight - r.bottom;
+                    const move = ev => {
+                        offX = startR - (ev.clientX - sx);
+                        offY = startB - (ev.clientY - sy);
+                        clamp();
+                    };
+                    const up = () => {
+                        window.removeEventListener('mousemove', move);
+                        window.removeEventListener('mouseup', up);
+                    };
+                    window.addEventListener('mousemove', move);
+                    window.addEventListener('mouseup', up);
+                });
+                window.addEventListener('resize', clamp);
+            }
+
+            // ── Panel open/close
+            const panel = document.getElementById('tweaksPanel');
+            const toggle = document.getElementById('tweaksToggle');
+            const closeBtn = document.getElementById('tweaksClose');
+
+            toggle.addEventListener('click', () => {
+                const open = panel.classList.toggle('is-open');
+                toggle.querySelector('span') && (toggle.querySelector('span').textContent = open ? 'Close' : 'Tweaks');
+            });
+            closeBtn.addEventListener('click', () => {
+                panel.classList.remove('is-open');
+            });
+
+            // ── Init
+            applyTweaks();
+            buildPalChips();
+            initSeg('voiceSeg', 'voiceThumb', 'voice', ['editorial', 'modern', 'print']);
+            initSeg('paceSeg', 'paceThumb', 'pace', ['composed', 'generous', 'tight']);
+            initDrag(panel);
+        })();
+    </script>
+</body>
+
+</html>
