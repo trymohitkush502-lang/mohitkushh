@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-palette="cream" data-voice="modern" data-pace="composed">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -919,19 +919,19 @@
     <div class="bento-tabs" role="tablist" aria-label="Products">
       <button class="bento-tab is-active" type="button" data-bento-tab="0" role="tab">
         <span class="num">01</span>
-        <span class="name" data-key="bento-prod-0">Product One</span>
+        <span class="name" data-key="bento-prod-0">Lumbar Support</span>
       </button>
       <button class="bento-tab" type="button" data-bento-tab="1" role="tab">
         <span class="num">02</span>
-        <span class="name" data-key="bento-prod-1">Product Two</span>
+        <span class="name" data-key="bento-prod-1">Travel Neck</span>
       </button>
       <button class="bento-tab" type="button" data-bento-tab="2" role="tab">
         <span class="num">03</span>
-        <span class="name" data-key="bento-prod-2">Product Three</span>
+        <span class="name" data-key="bento-prod-2">Snoozed Pillow</span>
       </button>
       <button class="bento-tab" type="button" data-bento-tab="3" role="tab">
         <span class="num">04</span>
-        <span class="name" data-key="bento-prod-3">Product Four</span>
+        <span class="name" data-key="bento-prod-3">Wedge Pillow</span>
       </button>
     </div>
 
@@ -1303,282 +1303,5 @@ const io = new IntersectionObserver(entries=>{
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 
-<!-- ─── Tweaks panel (vanilla JS — no React/Babel needed) ──────────── -->
-<style>
-  .twk-panel{position:fixed;right:16px;bottom:16px;z-index:2147483646;width:280px;
-    max-height:calc(100vh - 32px);display:none;flex-direction:column;
-    background:rgba(250,249,247,.92);color:#29261b;
-    -webkit-backdrop-filter:blur(24px) saturate(160%);backdrop-filter:blur(24px) saturate(160%);
-    border:.5px solid rgba(255,255,255,.6);border-radius:14px;
-    box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 12px 40px rgba(0,0,0,.18);
-    font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}
-  .twk-panel.is-open{display:flex}
-  .twk-hd{display:flex;align-items:center;justify-content:space-between;
-    padding:10px 8px 10px 14px;cursor:move;user-select:none;
-    border-bottom:.5px solid rgba(0,0,0,.07)}
-  .twk-hd b{font-size:12px;font-weight:600;letter-spacing:.01em}
-  .twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);
-    width:22px;height:22px;border-radius:6px;cursor:pointer;font-size:13px;line-height:22px;
-    display:grid;place-items:center}
-  .twk-x:hover{background:rgba(0,0,0,.06);color:#29261b}
-  .twk-body{padding:10px 14px 14px;display:flex;flex-direction:column;gap:10px;
-    overflow-y:auto;overflow-x:hidden;min-height:0;
-    scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.15) transparent}
-  .twk-body::-webkit-scrollbar{width:6px}
-  .twk-body::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);border-radius:4px}
-  .twk-row{display:flex;flex-direction:column;gap:5px}
-  .twk-lbl{display:flex;justify-content:space-between;align-items:baseline;
-    color:rgba(41,38,27,.72);font-weight:500;font-size:11px}
-  .twk-sect{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
-    color:rgba(41,38,27,.4);padding:6px 0 0;margin-top:2px}
-  .twk-sect:first-child{padding-top:0;margin-top:0}
-  /* Color chips */
-  .twk-chips{display:flex;gap:6px}
-  .twk-chip{position:relative;flex:1;min-width:0;height:46px;padding:0;border:0;
-    border-radius:8px;overflow:hidden;cursor:pointer;
-    box-shadow:0 0 0 .5px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.06);
-    transition:transform .12s,box-shadow .12s}
-  .twk-chip:hover{transform:translateY(-1px);box-shadow:0 0 0 .5px rgba(0,0,0,.18),0 4px 10px rgba(0,0,0,.12)}
-  .twk-chip[data-on="1"]{box-shadow:0 0 0 2px rgba(0,0,0,.82),0 2px 6px rgba(0,0,0,.15)}
-  .twk-chip-stripes{position:absolute;top:0;bottom:0;right:0;width:34%;
-    display:flex;flex-direction:column;box-shadow:-1px 0 0 rgba(0,0,0,.1)}
-  .twk-chip-stripes span{flex:1;box-shadow:0 -1px 0 rgba(0,0,0,.08)}
-  .twk-chip-stripes span:first-child{box-shadow:none}
-  .twk-chip svg{position:absolute;top:6px;left:6px;width:13px;height:13px;
-    filter:drop-shadow(0 1px 1px rgba(0,0,0,.3))}
-  /* Segmented radio */
-  .twk-seg{position:relative;display:flex;padding:2px;border-radius:8px;
-    background:rgba(0,0,0,.06);user-select:none}
-  .twk-seg-thumb{position:absolute;top:2px;bottom:2px;border-radius:6px;
-    background:rgba(255,255,255,.92);box-shadow:0 1px 2px rgba(0,0,0,.14);
-    transition:left .15s cubic-bezier(.3,.7,.4,1),width .15s;pointer-events:none}
-  .twk-seg button{position:relative;z-index:1;flex:1;border:0;
-    background:transparent;color:rgba(41,38,27,.7);font:inherit;font-weight:500;
-    min-height:24px;border-radius:6px;cursor:pointer;padding:4px 6px;
-    line-height:1.2;font-size:11px;transition:color .1s}
-  .twk-seg button[data-on="1"]{color:#29261b}
-  /* Tweaks open button */
-  .twk-open-btn{
-    position:fixed;right:18px;bottom:18px;z-index:55;
-    background:var(--ink);color:var(--bg);
-    border:0;border-radius:999px;
-    padding:10px 16px;cursor:pointer;
-    font-family:inherit;font-size:13px;font-weight:500;
-    display:inline-flex;align-items:center;gap:8px;
-    box-shadow:0 6px 20px rgba(22,20,19,0.18);
-    transition:transform 0.2s ease,background 0.2s ease;
-  }
-  .twk-open-btn:hover{transform:translateY(-1px)}
-  .twk-open-btn svg{width:15px;height:15px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
-</style>
-
-<!-- Tweaks trigger button -->
-<button class="twk-open-btn" id="tweaksToggle" aria-label="Open tweaks panel">
-  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-  <span>Tweaks</span>
-</button>
-
-<!-- Tweaks panel -->
-<div class="twk-panel" id="tweaksPanel" role="dialog" aria-label="Visual tweaks">
-  <div class="twk-hd" id="tweaksDragHandle">
-    <b>Tweaks</b>
-    <button class="twk-x" id="tweaksClose" aria-label="Close tweaks">✕</button>
-  </div>
-  <div class="twk-body">
-    <div class="twk-sect">Mood</div>
-    <div class="twk-row">
-      <div class="twk-lbl"><span>Palette</span></div>
-      <div class="twk-chips" id="palChips" role="radiogroup" aria-label="Palette"></div>
-    </div>
-    <div class="twk-sect">Voice</div>
-    <div class="twk-row">
-      <div class="twk-lbl"><span>Typography</span></div>
-      <div class="twk-seg" id="voiceSeg" role="radiogroup" aria-label="Typography">
-        <div class="twk-seg-thumb" id="voiceThumb"></div>
-        <button type="button" data-v="editorial" data-on="0">Editorial</button>
-        <button type="button" data-v="modern"    data-on="0">Modern</button>
-        <button type="button" data-v="print"     data-on="0">Print</button>
-      </div>
-    </div>
-    <div class="twk-sect">Pace</div>
-    <div class="twk-row">
-      <div class="twk-lbl"><span>Rhythm</span></div>
-      <div class="twk-seg" id="paceSeg" role="radiogroup" aria-label="Rhythm">
-        <div class="twk-seg-thumb" id="paceThumb"></div>
-        <button type="button" data-v="composed" data-on="0">Composed</button>
-        <button type="button" data-v="generous" data-on="0">Generous</button>
-        <button type="button" data-v="tight"    data-on="0">Tight</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-/* ── Tweaks panel: pure vanilla JS ─────────────────────────────────── */
-(function(){
-  const DEFAULTS = { palette:'cream', voice:'modern', pace:'composed' };
-  const PALETTES = {
-    cream: ['#DFF1FF','#5FA8D3','#1B4965','#C7E3F3'],
-    paper: ['#FAFAF7','#B23B30','#15151A','#F1EFE8'],
-    dusk:  ['#E8DCC0','#5A6B3E','#1F1C16','#DCCFB0'],
-  };
-  const PAL_KEYS = Object.keys(PALETTES);
-  const LS_TWEAK = 'mohit-tweaks-v1';
-
-  // Load saved tweaks
-  let saved = {};
-  try { saved = JSON.parse(localStorage.getItem(LS_TWEAK) || '{}'); } catch(e){}
-  const state = Object.assign({}, DEFAULTS, saved);
-
-  function saveTweaks(){ try { localStorage.setItem(LS_TWEAK, JSON.stringify(state)); } catch(e){} }
-
-  function applyTweaks(){
-    const r = document.documentElement;
-    r.dataset.palette = state.palette;
-    r.dataset.voice   = state.voice;
-    r.dataset.pace    = state.pace;
-  }
-
-  // ── Luminance helper for checkmark contrast
-  function isLight(hex){
-    const h = String(hex).replace('#','');
-    const x = h.length===3 ? h.replace(/./g,c=>c+c) : h.padEnd(6,'0');
-    const n = parseInt(x.slice(0,6),16);
-    if(Number.isNaN(n)) return true;
-    const r=(n>>16)&255, g=(n>>8)&255, b=n&255;
-    return r*299+g*587+b*114 > 148000;
-  }
-
-  // ── Build palette chips
-  function buildPalChips(){
-    const wrap = document.getElementById('palChips');
-    wrap.innerHTML = '';
-    PAL_KEYS.forEach(key=>{
-      const colors = PALETTES[key];
-      const [hero,...rest] = colors;
-      const btn = document.createElement('button');
-      btn.type='button'; btn.className='twk-chip';
-      btn.title=key; btn.setAttribute('role','radio');
-      btn.dataset.on = state.palette===key ? '1' : '0';
-      btn.style.background = hero;
-      // Stripe column
-      if(rest.length){
-        const col = document.createElement('div');
-        col.className='twk-chip-stripes';
-        rest.slice(0,3).forEach(c=>{
-          const s = document.createElement('span');
-          s.style.background=c; col.appendChild(s);
-        });
-        btn.appendChild(col);
-      }
-      // Checkmark if selected
-      if(state.palette===key){
-        const light = isLight(hero);
-        btn.insertAdjacentHTML('beforeend',
-          `<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.2 5.8 10 11 4.2" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke="${light?'rgba(0,0,0,.78)':'#fff'}"/></svg>`);
-      }
-      btn.addEventListener('click',()=>{
-        state.palette = key;
-        saveTweaks(); applyTweaks(); buildPalChips();
-      });
-      wrap.appendChild(btn);
-    });
-  }
-
-  // ── Segmented radio helper
-  function initSeg(segId, thumbId, stateKey, options){
-    const seg = document.getElementById(segId);
-    const thumb = document.getElementById(thumbId);
-    const btns = seg.querySelectorAll('button');
-
-    function positionThumb(idx){
-      const n = btns.length;
-      thumb.style.left = `calc(2px + ${idx} * (100% - 4px) / ${n})`;
-      thumb.style.width = `calc((100% - 4px) / ${n})`;
-    }
-
-    function activate(val){
-      state[stateKey] = val;
-      saveTweaks(); applyTweaks();
-      btns.forEach(b=>{
-        b.dataset.on = b.dataset.v===val ? '1' : '0';
-      });
-      const idx = options.indexOf(val);
-      if(idx>=0) positionThumb(idx);
-    }
-
-    // Initial position
-    const initIdx = options.indexOf(state[stateKey]);
-    positionThumb(initIdx>=0 ? initIdx : 0);
-    btns.forEach(b=>{ b.dataset.on = b.dataset.v===state[stateKey] ? '1' : '0'; });
-
-    // Click and pointer-drag
-    seg.addEventListener('pointerdown', e=>{
-      const hit = (x)=>{
-        const r = seg.getBoundingClientRect();
-        const n = btns.length;
-        const i = Math.floor(((x-r.left-2)/(r.width-4))*n);
-        return options[Math.max(0,Math.min(n-1,i))];
-      };
-      activate(hit(e.clientX));
-      const move = ev=>activate(hit(ev.clientX));
-      const up = ()=>{ window.removeEventListener('pointermove',move); window.removeEventListener('pointerup',up); };
-      window.addEventListener('pointermove',move);
-      window.addEventListener('pointerup',up);
-    });
-  }
-
-  // ── Drag panel
-  function initDrag(panel){
-    const handle = document.getElementById('tweaksDragHandle');
-    let offX=16, offY=16;
-    panel.style.right=offX+'px'; panel.style.bottom=offY+'px';
-
-    function clamp(){
-      const w=panel.offsetWidth, h=panel.offsetHeight;
-      const PAD=12;
-      offX = Math.min(Math.max(PAD, offX), window.innerWidth-w-PAD);
-      offY = Math.min(Math.max(PAD, offY), window.innerHeight-h-PAD);
-      panel.style.right=offX+'px'; panel.style.bottom=offY+'px';
-    }
-
-    handle.addEventListener('mousedown', e=>{
-      if(e.target.closest('.twk-x')) return;
-      const r=panel.getBoundingClientRect();
-      const sx=e.clientX, sy=e.clientY;
-      const startR=window.innerWidth-r.right, startB=window.innerHeight-r.bottom;
-      const move=ev=>{
-        offX=startR-(ev.clientX-sx);
-        offY=startB-(ev.clientY-sy);
-        clamp();
-      };
-      const up=()=>{ window.removeEventListener('mousemove',move); window.removeEventListener('mouseup',up); };
-      window.addEventListener('mousemove',move);
-      window.addEventListener('mouseup',up);
-    });
-    window.addEventListener('resize', clamp);
-  }
-
-  // ── Panel open/close
-  const panel = document.getElementById('tweaksPanel');
-  const toggle = document.getElementById('tweaksToggle');
-  const closeBtn = document.getElementById('tweaksClose');
-
-  toggle.addEventListener('click',()=>{
-    const open = panel.classList.toggle('is-open');
-    toggle.querySelector('span') && (toggle.querySelector('span').textContent = open ? 'Close' : 'Tweaks');
-  });
-  closeBtn.addEventListener('click',()=>{
-    panel.classList.remove('is-open');
-  });
-
-  // ── Init
-  applyTweaks();
-  buildPalChips();
-  initSeg('voiceSeg','voiceThumb','voice',['editorial','modern','print']);
-  initSeg('paceSeg','paceThumb','pace',['composed','generous','tight']);
-  initDrag(panel);
-})();
-</script>
 </body>
 </html>
