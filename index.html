@@ -1067,41 +1067,41 @@ const SHOWCASES = {
   meta: {
     pillLabel: 'Meta Ads',
     creatives: [
-      { name:'Cervical Pillow', tag:'Sales Campaign', ctx:'', call:'Stripped the offer to one number on a calm, high-contrast layout — the message did the work, not the design.',
+      { name:'Cervical Pillow', tag:'Sales Campaign', ctx:'', call:'Created this informational cervical carousel to drive sales conversions while clearly communicating the product\'s key information to users.',
         defaultImg:'assets/meta-ads/01.jpg',
         metrics:[
           {l:'CTR', before:'0.5%', after:'1.5%'},
           {l:'Total Purchase', after:'600'}
         ]},
-      { name:'Sales Campaign', tag:'Sales', ctx:'End-of-season clearance · 7-day burst', call:'Mono-product hero with a typographic stack — no clutter, only the price did the talking.',
+      { name:'Wedge Cushion', tag:'Sales Campaign', ctx:'', call:'Focused each visual on a specific sleep problem to make the wedge pillow feel solution-driven and increase purchase intent.',
         defaultImg:'assets/meta-ads/02.jpg',
         metrics:[
-          {l:'CPM', before:'₹220', after:'₹148'},
-          {l:'ROAS', after:'4.2×'}
+          {l:'CTR', before:'0.5%', after:'2.24'},
+          {l:'Total Purchase', after:'140'}
         ]},
-      { name:'Lead Gen', tag:'Leads', ctx:'Mid-funnel for service tier · always-on', call:'Used a real customer face + one promise. Generic stock visuals consistently lost in A/B.',
+      { name:'Lead Gen', title:'Bulk Orders', tag:'Leads', ctx:'', call:'Used a premium product-focused visual with clear B2B messaging to build trust and generate high-quality wholesale leads.',
         defaultImg:'assets/meta-ads/03.jpg',
         metrics:[
-          {l:'Cost per lead', before:'₹186', after:'₹92'},
-          {l:'Leads', after:'1,240'}
+          {l:'CTR', before:'0.5%', after:'1.36%'},
+          {l:'Leads', after:'130'}
         ]},
-      { name:'Awareness', tag:'Awareness', ctx:'Top-funnel category framing', call:'Treated the ad as editorial — large headline, single image, one credit line. Stopped the scroll.',
+      { name:'Bulk Orders', tag:'Leads', ctx:'', call:'Created a clean B2B-focused visual with clear value messaging to attract bulk buyers and drive high-quality leads.',
         defaultImg:'assets/meta-ads/04.png',
         metrics:[
-          {l:'Reach', after:'1.8M'},
-          {l:'Brand recall lift', after:'+22%'}
+          {l:'CTR', before:'0.5%', after:'2.65%'},
+          {l:'Leads', after:'150'}
         ]},
-      { name:'Carousel Set', tag:'Sales', ctx:'Product carousel · category leader', call:'Each card framed one use-case — the carousel became a mini-catalogue, not five copies of the same ad.',
+      { name:'Combo Set', title:'Car Seat Combo', tag:'Sales Campaign', ctx:'', call:'Designed for car owners with a comfort-focused visual and bold offer highlight to instantly communicate pain relief and driving support.',
         defaultImg:'assets/meta-ads/05.jpg',
         metrics:[
-          {l:'Swipe-through', after:'62%'},
-          {l:'Purchases', after:'418'}
+          {l:'CTR', before:'0.5%', after:'1.41%'},
+          {l:'Total Purchase', after:'100'}
         ]},
-      { name:'Reels Hook', tag:'Video', ctx:'Short-form Reels · hook-first edit', call:'First 1.5s carries the entire promise. Cuts paced to the offer, not the music.',
+      { name:'Lumbar Cushion', tag:'Sales Campaign', ctx:'', call:'Built around pain-relief messaging with a clean comfort-focused visual to instantly connect with work-from-home users and drive conversions.',
         defaultImg:'assets/meta-ads/06.jpg',
         metrics:[
-          {l:'Hook rate', after:'42%'},
-          {l:'View-through', after:'+58%'}
+          {l:'CTR', before:'0.5%', after:'1.4%'},
+          {l:'Total Purchase', after:'50'}
         ]}
     ]
   },
@@ -1205,7 +1205,7 @@ function buildShowcase(rootEl, key){
           <span class="pill" data-key="${id}-tag">${c.tag}</span>
           <span class="ctx" data-key="${id}-ctx">${c.ctx}</span>
         </div>
-        <h3 class="c-name serif" data-key="${id}-cname">${c.name}</h3>
+        <h3 class="c-name serif" data-key="${id}-cname">${c.title || c.name}</h3>
         <div class="metric-grid">${metricsHtml}</div>
         <div class="call-out">
           <div class="l">The design call</div>
